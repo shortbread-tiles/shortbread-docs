@@ -7,6 +7,8 @@ It does not, and is not intended to, cover the full breath and depth of OpenStre
 This repository contains the description of the tile schema, i.e. which layers there
 are on which zoom levels and which attributes to expect on features in that layer.
 
+At present, this is still "work in progress" and very much a moving target.
+
 ## Installation
 
 This repository does not have installable software. You will need to use a software

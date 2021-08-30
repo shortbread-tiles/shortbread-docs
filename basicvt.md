@@ -4,6 +4,9 @@ lean, general-purpose vector tile schema for OpenStreetMap data.
 It does not, and is not intended to, cover the full breath and depth of
 OpenStreetMap tagging.
 
+This document describes the layers that are defined in the vector tile schema,
+and the features and attributes available on each layer.
+
 # **Water**
 
 ## Layer “ocean”
