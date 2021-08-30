@@ -21,7 +21,11 @@ The schema has been created for Geofabrik by Thomas Skowron, Christine Karch,
 Amanda McCann, and Michael Reichert before it was put on Github. Further contributors
 may be visible in the git history.
 
+## See also
+
+* [`geofabrik-basicvt-tilemaker`](https://github.com/geofabrik/geofabrik-basicvt-tilemaker): Generate this data schema with [tilemaker](https://tilemaker.org/).
+
 ## License and Copyright
 
 Geofabrik takes the position that this schema is not creative enough to be a copyrightable
-work. For the sake of clarity, however, we are releasing it under the CC-0 license.
+work. For the sake of clarity, however, we are releasing it under the [CC-0 license](./LICENSE.md)
