@@ -8,9 +8,10 @@ OpenStreetMap tagging.
 
 ## Layer “ocean”
 
-|            |  |              | geometry| zoom |
-| ---------- |  | :----------- | :------ | :-   |
-| coastlines |  | sea polygons | polygon | 0+   |
+|            |              | geometry| zoom |
+| ---------- | :----------- | :------ | :-   |
+| coastlines | sea polygons | polygon | 0+   |
+|            |              |         |      |
 
 ## Layer “water\_polygons”
 
@@ -45,25 +46,22 @@ Hold line geometries and names for water lines.
 
 ## Layer “boundaries”
 
-|           |              |  |          |      |
-| --------- | :----------- |  | :------- | :--- |
-|           | admin\_level |  | geometry | zoom |
-| countries | 2            |  | line     | 0+   |
-| states    | 4            |  | line     | 7+   |
+|           | admin\_level | geometry | zoom |
+| --------- | :----------- | :------- | :--- |
+| countries | 2            | line     | 0+   |
+| states    | 4            | line     | 7+   |
 
 ## Layer “boundary\_labels”
 
-|           |              |            |          |      |
-| --------- | :----------- | :--------- | :------- | :--- |
 |           | admin\_level | label      | geometry | zoom |
+| --------- | :----------- | :--------- | :------- | :--- |
 | countries | 2            | name, etc. | point    | 2+   |
 | states    | 4            | name, etc. | point    | 5+   |
 
 ## Layer “place\_labels”
 
-|                   |                    |            |          |      |
-| ----------------- | :----------------- | :--------- | :------- | :--- |
 |                   | class              | label      | geometry | zoom |
+| ----------------- | :----------------- | :--------- | :------- | :--- |
 | national capital  | capital            | name, etc. | point    | 4+   |
 | state capital     | state\_capital     | name, etc. | point    | 4+   |
 | city              | city               |            | point    | 6+   |
@@ -81,9 +79,8 @@ Hold line geometries and names for water lines.
 
 This layer contains basic land cover that is usually drawn first.
 
-|                  |                                                                                                                                      |                                                                                                                                               |          |      |
-| ---------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :--- |
 |                  | kind                                                                                                                                 | OSM                                                                                                                                           | geometry | zoom |
+| ---------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :--- |
 | forest           | forest                                                                                                                               | landuse=forest, natural=wood                                                                                                                  | polygon  | 7+   |
 | green areas      | grass, meadow, orchard, vineyard, cemetery, allotments, village\_green, recreation\_ground, greenhouse\_horticulture, plant\_nursery | landuse= grass, meadow, orchard, vineyard, cemetery, allotments, village\_green, recreation\_ground, greenhouse\_horticulture, plant\_nursery | polygon  | 11+  |
 |                  | heath, scrub, grassland, bare\_rock, scree, shingle                                                                                  | natural=heath, scrub, grassland, bare\_rock, scree, shingle                                                                                   | polygon  | 11+  |
@@ -98,9 +95,8 @@ This layer contains basic land cover that is usually drawn first.
 This layer is for types of land use that will usually be above the basic
 land layer, but below buildings.
 
-|                      |                  |                          |       |          |      |
-| -------------------- | :--------------- | :----------------------- | :---- | :------- | :--- |
 |                      | kind             | OSM                      | label | geometry | zoom |
+| -------------------- | :--------------- | :----------------------- | :---- | :------- | :--- |
 | military danger area | danger\_area     | military=danger\_area    | name  | polygon  | 14+  |
 | sports center        | sports\_center   | leisure=sports\_center   | name  | polygon  | 14+  |
 | university campus    | university       | amenity=university       | name  | polygon  | 14+  |
@@ -126,9 +122,8 @@ for addr:housename, “number” for addr:housenumber.
 
 ### Streets and Street Names
 
-|                 |           |                                    |          |      |
-| --------------- | :-------- | :--------------------------------- | :------- | :--- |
 |                 | class     | attributes                         | geometry | zoom |
+| --------------- | :-------- | :--------------------------------- | :------- | :--- |
 | motorway        | motorway  | name                               | line     | 5+   |
 |                 |           | link=true, null                    |          |      |
 |                 |           | tunnel, bridge = true, false, null |          |      |
@@ -191,9 +186,8 @@ for addr:housename, “number” for addr:housenumber.
 
 ### Paths on Airports
 
-|         |         |                                    |          |      |
-| ------- | :------ | :--------------------------------- | :------- | :--- |
 |         | class   | attributes                         | geometry | zoom |
+| ------- | :------ | :--------------------------------- | :------- | :--- |
 | runway  | runway  | name                               | line     | 11+  |
 |         |         | link=true, null                    |          |      |
 |         |         | tunnel, bridge = true, false, null |          |      |
@@ -203,9 +197,8 @@ for addr:housename, “number” for addr:housenumber.
 
 ### Railway Tracks
 
-|                      |               |                                    |          |      |
-| -------------------- | :------------ | :--------------------------------- | :------- | :--- |
 |                      | class         | attributes                         | geometry | zoom |
+| -------------------- | :------------ | :--------------------------------- | :------- | :--- |
 | railway              | rail          | tunnel, bridge = true, false, null | line     | 5+   |
 |                      |               | service                            |          |      |
 | narrow gauge railway | narrow\_gauge | tunnel, bridge = true, false, null | line     | 10+  |
@@ -239,17 +232,15 @@ t.b.d.
 
 ### Junctions
 
-|               |                    |                    |       |          |      |
-| ------------- | :----------------- | :----------------- | :---- | :------- | :--- |
 |               | kind               | OSM                | label | geometry | zoom |
+| ------------- | :----------------- | :----------------- | :---- | :------- | :--- |
 | motorway exit | motorway\_junction | highway=           | name, | point    | 15+  |
 |               |                    | motorway\_junction | ref   |          |      |
 
 ## Layer “aerialways”
 
-|                 |             |                        |       |          |      |
-| --------------- | :---------- | :--------------------- | :---- | :------- | :--- |
 |                 | kind        | OSM                    | label | geometry | zoom |
+| --------------- | :---------- | :--------------------- | :---- | :------- | :--- |
 | cable car       | cable\_car  | aerialways=cable\_car  |       | line     | 12+  |
 | gondola         | gondola     | aerialways=gondola     |       | line     | 12+  |
 | goods cable car | goods       | aerialways=goods       |       | line     | 12+  |
@@ -262,9 +253,8 @@ t.b.d.
 
 ## Layer “public\_transport”
 
-|                    |           |                   |       |          |      |
-| ------------------ | :-------- | :---------------- | :---- | :------- | :--- |
 |                    | kind      | OSM               | label | geometry | zoom |
+| ------------------ | :-------- | :---------------- | :---- | :------- | :--- |
 | station            | station   | railway=station   | name  | point    | 11+  |
 | halt               | halt      | railway=halt      | name  | point    | 11+  |
 | airport, aerodrome | aerodrome | aeroway=aerodrome | name  | point    | 11+  |
