@@ -1,4 +1,4 @@
-# Geofabrik Basic Vector Tiles
+# Geofabrik Basic Vector Tiles - Specification
 
 The Geofabrik "Basic" vector tile schema is intended to be a basic, lean, general-purpose vector tile schema for OpenStreetMap data.
 
@@ -7,7 +7,7 @@ It does not, and is not intended to, cover the full breath and depth of OpenStre
 This repository contains the description of the tile schema, i.e. which layers there
 are on which zoom levels and which attributes to expect on features in that layer.
 
-At present, this is still "work in progress" and very much a moving target.
+**At present, this is still "work in progress" and very much a moving target.**
 
 ## Installation
 
