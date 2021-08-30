@@ -8,15 +8,14 @@ OpenStreetMap tagging.
 
 ## Layer “ocean”
 
-|            |  |              |         |    |
-| :--------- |  | :----------- | :------ | :- |
-| coastlines |  | sea polygons | polygon | 0+ |
+|            |  |              | geometry| zoom |
+| ---------- |  | :----------- | :------ | :-   |
+| coastlines |  | sea polygons | polygon | 0+   |
 
 ## Layer “water\_polygons”
 
-|           |           |                    |          |      |
-| --------- | :-------- | :----------------- | :------- | :--- |
 |           | kind      | OSM                | geometry | zoom |
+| --------- | :-------- | :----------------- | :------- | :--- |
 | glacier   | glacier   | natural=glacier    | polygon  | 4+   |
 | water     | water     | natural=water      | polygon  | 4+   |
 | river     | riverbank | waterway=riverbank | polygon  | 4+   |
@@ -31,9 +30,8 @@ Holds point (centroid) geometries and names for all water polygons.
 
 ## Layer “water\_lines”
 
-|        |        |                 |          |      |
-| ------ | :----- | :-------------- | :------- | :--- |
 |        | kind   | OSM             | geometry | zoom |
+| ------ | :----- | :-------------- | :------- | :--- |
 | canal  | canal  | waterway=canal  | line     | 10+  |
 | river  | river  | waterway=river  | line     | 10+  |
 | stream | stream | waterway=stream | line     | 14+  |
