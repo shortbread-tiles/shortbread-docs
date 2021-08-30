@@ -1,7 +1,7 @@
-The Geofabrik “basic” vector tile schema is intended to be a basic,
+The Geofabrik "basic" vector tile schema is intended to be a basic,
 lean, general-purpose vector tile schema for OpenStreetMap data.
 
-It does not, and is not intended to, cover the full breath and depth of
+It does not, and is not intended to, cover the full breadth and depth of
 OpenStreetMap tagging.
 
 This document describes the layers that are defined in the vector tile schema,
@@ -9,14 +9,14 @@ and the features and attributes available on each layer.
 
 # **Water**
 
-## Layer “ocean”
+## Layer "ocean"
 
 |            |              | geometry| zoom |
 | ---------- | :----------- | :------ | :-   |
 | coastlines | sea polygons | polygon | 0+   |
 |            |              |         |      |
 
-## Layer “water\_polygons”
+## Layer "water\_polygons"
 
 |           | kind      | OSM                | geometry | zoom |
 | --------- | :-------- | :----------------- | :------- | :--- |
@@ -28,11 +28,11 @@ and the features and attributes available on each layer.
 | dock      | dock      | waterway=dock      | polygon  | 10+  |
 | canal     | canal     | waterway=canal     | polygon  | 10+  |
 
-## Layer “water\_polygons\_labels”
+## Layer "water\_polygons\_labels"
 
 Holds point (centroid) geometries and names for all water polygons.
 
-## Layer “water\_lines”
+## Layer "water\_lines"
 
 |        | kind   | OSM             | geometry | zoom |
 | ------ | :----- | :-------------- | :------- | :--- |
@@ -41,27 +41,27 @@ Holds point (centroid) geometries and names for all water polygons.
 | stream | stream | waterway=stream | line     | 14+  |
 | ditch  | ditch  | waterway=ditch  | line     | 14+  |
 
-## Layer “water\_lines\_labels”
+## Layer "water\_lines\_labels"
 
 Hold line geometries and names for water lines.
 
 # Countries, States, Cities
 
-## Layer “boundaries”
+## Layer "boundaries"
 
 |           | admin\_level | geometry | zoom |
 | --------- | :----------- | :------- | :--- |
 | countries | 2            | line     | 0+   |
 | states    | 4            | line     | 7+   |
 
-## Layer “boundary\_labels”
+## Layer "boundary\_labels"
 
 |           | admin\_level | label      | geometry | zoom |
 | --------- | :----------- | :--------- | :------- | :--- |
 | countries | 2            | name, etc. | point    | 2+   |
 | states    | 4            | name, etc. | point    | 5+   |
 
-## Layer “place\_labels”
+## Layer "place\_labels"
 
 |                   | class              | label      | geometry | zoom |
 | ----------------- | :----------------- | :--------- | :------- | :--- |
@@ -78,7 +78,7 @@ Hold line geometries and names for water lines.
 
 # Land Use, Land Cover, Buildings
 
-## Layer “land”
+## Layer "land"
 
 This layer contains basic land cover that is usually drawn first.
 
@@ -93,7 +93,7 @@ This layer contains basic land cover that is usually drawn first.
 | built-up areas   | residential, industrial, commercial, retail, railway, landfill, quarry                                                               | landuse= residential, industrial, commercial, retail, railway, landfill, quarry                                                               | polygon  | 11+  |
 | other land areas | brownfield, greenfield, farmyard, farmland                                                                                           | landuse= brownfield, greenfield, farmyard, farmland                                                                                           | polygon  | 11+  |
 
-## Layer “sites”
+## Layer "sites"
 
 This layer is for types of land use that will usually be above the basic
 land layer, but below buildings.
@@ -109,19 +109,19 @@ land layer, but below buildings.
 | bicycle parking      | bicycle\_parking | amenity=bicycle\_parking | name  | polygon  | 14+  |
 | construction site    | construction     | landuse=construction     | name  | polygon  | 14+  |
 
-## Layer “buildings”
+## Layer "buildings"
 
 Has polygons for everything with a building tag (not building=no) from
 zoom 14 on.
 
-## Layer “addresses”
+## Layer "addresses"
 
-Has points for everything with an address from zoom 14+. Columns “name”
-for addr:housename, “number” for addr:housenumber.
+Has points for everything with an address from zoom 14+. Columns "name"
+for addr:housename, "number" for addr:housenumber.
 
 # Streets and Transport
 
-## Layer “streets”
+## Layer "streets"
 
 ### Streets and Street Names
 
@@ -225,7 +225,7 @@ Subset of streets layer only used up to z13.
 
 Subset of streets layer only used up to z9.
 
-## Layer “street\_labels”
+## Layer "street\_labels"
 
 ## streets\_labels\_points
 
@@ -240,7 +240,7 @@ t.b.d.
 | motorway exit | motorway\_junction | highway=           | name, | point    | 15+  |
 |               |                    | motorway\_junction | ref   |          |      |
 
-## Layer “aerialways”
+## Layer "aerialways"
 
 |                 | kind        | OSM                    | label | geometry | zoom |
 | --------------- | :---------- | :--------------------- | :---- | :------- | :--- |
@@ -254,7 +254,7 @@ t.b.d.
 | platter lift    | platter     | aerialways=platter     |       | line     | 12+  |
 | rope-tow lift   | rope-tow    | aerialways=rope\_tow   |       | line     | 12+  |
 
-## Layer “public\_transport”
+## Layer "public\_transport"
 
 |                    | kind      | OSM               | label | geometry | zoom |
 | ------------------ | :-------- | :---------------- | :---- | :------- | :--- |
