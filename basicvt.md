@@ -11,12 +11,24 @@ and the features and attributes available on each layer.
 
 ## Layer "ocean"
 
+This layer contains oceans.
+
 |            |              | geometry| zoom |
 | ---------- | :----------- | :------ | :-   |
 | coastlines | sea polygons | polygon | 0+   |
 |            |              |         |      |
 
 ## Layer "water\_polygons"
+
+This layer contains inland water bodies and glaciers.
+
+### Properties
+
+| field name | type   | description        |
+| ---------- | :----- | :----------------- |
+| kind       | string | type of water body |
+
+### Features
 
 |           | kind      | OSM                | geometry | zoom |
 | --------- | :-------- | :----------------- | :------- | :--- |
@@ -30,9 +42,28 @@ and the features and attributes available on each layer.
 
 ## Layer "water\_polygons\_labels"
 
-Holds point (centroid) geometries and names for all water polygons.
+Holds point (centroid) geometries and names for all named water polygons available in the *water\_polygons* layer.
+
+### Properties
+
+| field name | type   | description                                                           |
+| ---------- | :----- | :-------------------------------------------------------------------- |
+| kind       | string | type of water body (see *water\_polygons* layer for a list of values) |
+| name       | string | value of OSM name=* tag                                               |
+| name_en    | string | value of OSM name=:en* tag                                            |
+| name_de    | string | value of OSM name=:de* tag                                            |
 
 ## Layer "water\_lines"
+
+Holds waterway line geometries.
+
+### Properties
+
+| field name | type   | description      |
+| ---------- | :----- | :--------------- |
+| kind       | string | type of waterway |
+
+### Features
 
 |        | kind   | OSM             | geometry | zoom |
 | ------ | :----- | :-------------- | :------- | :--- |
@@ -45,9 +76,30 @@ Holds point (centroid) geometries and names for all water polygons.
 
 Hold line geometries and names for water lines.
 
+### Properties
+
+| field name | type   | description                                                           |
+| ---------- | :----- | :-------------------------------------------------------------------- |
+| kind       | string | type of water body (see *water\_lines* layer for a list of values) |
+| name       | string | value of OSM name=* tag                                               |
+| name_en    | string | value of OSM name=:en* tag                                            |
+| name_de    | string | value of OSM name=:de* tag                                            |
+
 # Countries, States, Cities
 
 ## Layer "boundaries"
+
+Holds boundary lines of countries and states.
+
+
+### Properties
+
+| field name  | type   | description                                                                |
+| ----------- | :----- | :------------------------------------------------------------------------- |
+| admin_level | string | value of OSM `admin_level=*` tag, see Features section for possible values |
+
+
+### Features
 
 |           | admin\_level | geometry | zoom |
 | --------- | :----------- | :------- | :--- |
@@ -56,25 +108,58 @@ Hold line geometries and names for water lines.
 
 ## Layer "boundary\_labels"
 
-|           | admin\_level | label      | geometry | zoom |
-| --------- | :----------- | :--------- | :------- | :--- |
-| countries | 2            | name, etc. | point    | 2+   |
-| states    | 4            | name, etc. | point    | 5+   |
+Holds label points for boundary polygons of countries and states
+
+
+### Properties
+
+| field name  | type   | description                                                                |
+| ----------- | :----- | :------------------------------------------------------------------------- |
+| admin_level | string | value of OSM `admin_level=*` tag, see Features section for possible values |
+| name        | string | value of OSM name=* tag                                                    |
+| name_en     | string | value of OSM name=:en* tag                                                 |
+| name_de     | string | value of OSM name=:de* tag                                                 |
+
+### Features
+
+|           | admin\_level | geometry | minimum area | zoom |
+| --------- | :----------- | :------- | :----------- | :--- |
+| countries | 2            | line     | 2*10^6 km²   | 2+   |
+| countries | 2            | line     | 7*10^5 km²   | 3+   |
+| countries | 2            | line     | 1*10^5 km²   | 4+   |
+| countries | 2            | line     | none         | 5+   |
+| states    | 4            | line     | 7*10^5 km²   | 3+   |
+| states    | 4            | line     | 1*10^5 km²   | 4+   |
+| states    | 4            | line     | none         | 5+   |
 
 ## Layer "place\_labels"
 
-|                   | class              | label      | geometry | zoom |
-| ----------------- | :----------------- | :--------- | :------- | :--- |
-| national capital  | capital            | name, etc. | point    | 4+   |
-| state capital     | state\_capital     | name, etc. | point    | 4+   |
-| city              | city               |            | point    | 6+   |
-| town              | town               |            | point    | 7+   |
-| village           | village            |            | point    | 10+  |
-| hamlet            | hamlet             |            | point    | 10+  |
-| suburb            | suburb             |            | point    | 10+  |
-| neighbourhood     | neighbourhood      |            | point    | 10+  |
-| isolated dewlling | isolated\_dwelling |            | point    | 10+  |
-| farm              | farm               |            | point    | 10+  |
+Holds label points for populated places.
+
+### Properties
+
+| field name  | type    | description                                                                |
+| ----------- | :------ | :------------------------------------------------------------------------- |
+| kind        | string  | value of OSM `place=*` tag, see Features section for possible values       |
+| name        | string  | value of OSM name=* tag                                                    |
+| name_en     | string  | value of OSM name=:en* tag                                                 |
+| name_de     | string  | value of OSM name=:de* tag                                                 |
+| population  | numeric | value of OSM `population=*` tag                                            |
+
+### Features
+
+|                   | kind               | OSM                                          | geometry | zoom |
+| ----------------- | :----------------- | :------------------------------------------- | :------- | :--- |
+| national capital  | capital            | place=city/town/village/hamlet + capital=yes | point    | 4+   |
+| state capital     | state\_capital     | place=city/town/village/hamlet + capital=4   | point    | 4+   |
+| city              | city               | place=city (except capitals)                 | point    | 6+   |
+| town              | town               | place=town (except capitals)                 | point    | 7+   |
+| village           | village            | place=village (except capitals)              | point    | 10+  |
+| hamlet            | hamlet             | place=hamlet (except capitals)               | point    | 10+  |
+| suburb            | suburb             | place=suburb                                 | point    | 10+  |
+| neighbourhood     | neighbourhood      | place=neighbourhood                          | point    | 10+  |
+| isolated dewlling | isolated\_dwelling | place=isolated_dwelling                      | point    | 10+  |
+| farm              | farm               | place=farm                                   | point    | 10+  |
 
 # Land Use, Land Cover, Buildings
 
@@ -82,16 +167,57 @@ Hold line geometries and names for water lines.
 
 This layer contains basic land cover that is usually drawn first.
 
-|                  | kind                                                                                                                                 | OSM                                                                                                                                           | geometry | zoom |
-| ---------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :--- |
-| forest           | forest                                                                                                                               | landuse=forest, natural=wood                                                                                                                  | polygon  | 7+   |
-| green areas      | grass, meadow, orchard, vineyard, cemetery, allotments, village\_green, recreation\_ground, greenhouse\_horticulture, plant\_nursery | landuse= grass, meadow, orchard, vineyard, cemetery, allotments, village\_green, recreation\_ground, greenhouse\_horticulture, plant\_nursery | polygon  | 11+  |
-|                  | heath, scrub, grassland, bare\_rock, scree, shingle                                                                                  | natural=heath, scrub, grassland, bare\_rock, scree, shingle                                                                                   | polygon  | 11+  |
-|                  | swamp, bog, string\_bog, wet\_meadow, marsh                                                                                          | wetland=swamp, bog, string\_bog, wet\_meadow, marsh                                                                                           | polygon  | 11+  |
-|                  | grave\_yard                                                                                                                          | amenity=grave\_yard                                                                                                                           | polygon  | 11+  |
-|                  | golf\_course, park, garden, playground, miniature\_golf                                                                              | leisure= golf\_course, park, garden, playground, miniature\_golf                                                                              | polygon  | 11+  |
-| built-up areas   | residential, industrial, commercial, retail, railway, landfill, quarry                                                               | landuse= residential, industrial, commercial, retail, railway, landfill, quarry                                                               | polygon  | 11+  |
-| other land areas | brownfield, greenfield, farmyard, farmland                                                                                           | landuse= brownfield, greenfield, farmyard, farmland                                                                                           | polygon  | 11+  |
+### Properties
+
+| field name  | type    | description                              |
+| ----------- | :------ | :--------------------------------------- |
+| kind        | string  | see Features section for possible values |
+
+
+### Features
+| kind                    | OSM                             | geometry | zoom |
+| ----------------------- | :------------------------------ | :------- | :--- |
+| forest                  | landuse=forest, natural=wood    | polygon  | 7+   |
+| grass                   | landuse=grass                   | polygon  | 11+  |
+| meadow                  | landuse=meadow                  | polygon  | 11+  |
+| orchard                 | landuse=orchard                 | polygon  | 11+  |
+| vineyard                | landuse=vineyard                | polygon  | 11+  |
+| allotments              | landuse=allotments              | polygon  | 11+  |
+| cemetery                | landuse=cemetery                | polygon  | 13+  |
+| grave_yard              | amenity=grave\_yard             | polygon  | 13+  |
+| village_green           | landuse=village_green           | polygon  | 11+  |
+| recreation_ground       | landuse=recreation_ground       | polygon  | 11+  |
+| greenhouse_horticulture | landuse=greenhouse_horticulture | polygon  | 11+  |
+| planet_nursery          | landuse=greenhouse_horticulture | polygon  | 11+  |
+| sand                    | natural=sand                    | polygon  | 10+  |
+| scrub                   | natural=beach                   | polygon  | 10+  |
+| heath                   | natural=heath                   | polygon  | 11+  |
+| scrub                   | natural=scrub                   | polygon  | 11+  |
+| grassland               | natural=grassland               | polygon  | 11+  |
+| bare\_rock              | natural=bare\_rock              | polygon  | 11+  |
+| scree                   | natural=scree                   | polygon  | 11+  |
+| shingle                 | natural=shingle                 | polygon  | 11+  |
+| swamp                   | wetland=swamp                   | polygon  | 11+  |
+| bog                     | wetland=bog                     | polygon  | 11+  |
+| string\_bog             | wetland=string\_bog             | polygon  | 11+  |
+| wet\_meadow             | wetland=wet\_meadow             | polygon  | 11+  |
+| marsh                   | wetland=marsh                   | polygon  | 11+  |
+| golf\_course            | leisure=golf_course             | polygon  | 11+  |
+| park                    | leisure=park                    | polygon  | 11+  |
+| garden                  | leisure=garden                  | polygon  | 11+  |
+| playground              | leisure=playground              | polygon  | 11+  |
+| miniature\_golf         | leisure=miniature\_golf         | polygon  | 11+  |
+| residential             | landuse=residential             | polygon  | 10+  |
+| industrial              | landuse=industrial              | polygon  | 10+  |
+| commercial              | landuse=commercial              | polygon  | 10+  |
+| retail                  | landuse=retail                  | polygon  | 10+  |
+| railway                 | landuse=railway                 | polygon  | 10+  |
+| landfill                | landuse=landfill                | polygon  | 10+  |
+| quarry                  | landuse=quarry                  | polygon  | 10+  |
+| brownfield              | landuse=brownfield              | polygon  | 10+  |
+| greenfield              | landuse=greenfield              | polygon  | 10+  |
+| farmyard                | landuse=farmyard                | polygon  | 10+  |
+| farmland                | landuse=farmland                | polygon  | 10+  |
 
 ## Layer "sites"
 
@@ -116,148 +242,134 @@ zoom 14 on.
 
 ## Layer "addresses"
 
-Has points for everything with an address from zoom 14+. Columns "name"
-for addr:housename, "number" for addr:housenumber.
+Has points for everything with an address from zoom 14+.
+
+### Properties
+
+| field name | type    | OSM                |
+| ---------- | :------ | :----------------- |
+| name       | string  | addr:housename=*   |
+| number     | string  | addr:housenumber=* |
 
 # Streets and Transport
 
 ## Layer "streets"
 
-### Streets and Street Names
+### Properties
 
-|                 | class     | attributes                         | geometry | zoom |
-| --------------- | :-------- | :--------------------------------- | :------- | :--- |
-| motorway        | motorway  | name                               | line     | 5+   |
-|                 |           | link=true, null                    |          |      |
-|                 |           | tunnel, bridge = true, false, null |          |      |
-| trunk roads     | trunk     | name                               | line     | 5+   |
-|                 |           | link=true, null                    |          |      |
-|                 |           | tunnel, bridge = true, false, null |          |      |
-| primary roads   | primary   | name                               | line     | 6+   |
-|                 |           | link=true, null                    |          |      |
-|                 |           | tunnel, bridge = true, false, null |          |      |
-| secondary roads | secondary | name                               | line     | 9+   |
-|                 |           | link=true, null                    |          |      |
-|                 |           | tunnel, bridge = true, false, null |          |      |
+| field name | type     | zoom | OSM                   | note                                                                             |
+| ---------- | :------- | :--- | :-------------------- | :------------------------------------------------------------------------------- |
+| kind       | string   | 6+   | highway=*, railway=*  | feature type (road class or type of railway)                                     |
+| link       | boolean  | 6+   |                       | true for link roads (`highway=(motorway|trunk|primary|secondary|tertiary)_link`) |
+| rail       | boolean  | 11+  |                       | true for railways, `false` otherwise                                             |
+| tunnel     | boolean  | 11+  | tunnel=*              | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise       |
+| bridge     | boolean  | 11+  | bridge=*              | true for `bridge=yes`, `false` otherwise                                         |
+| tracktype  | string   | 11+  | tracktype=*           |                                                                                  |
+| surface    | string   | 11+  | surface=*             |                                                                                  |
+| service    | string   | 11+  | service=*             | available on all features if set in OSM                                          |
+| bicycle    | string   | 14+  | bicycle=*             |                                                                                  |
+| horse      | string   | 14+  | horse=*               |                                                                                  |
+| name       | string   | 6+   | name=*                |                                                                                  |
 
-|                                     |                |                                    |      |     |
-| :---------------------------------- | :------------- | :--------------------------------- | :--- | :-- |
-| tertiary roads                      | tertiary       | name                               | line | 11+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| side roads                          | unclassified   | name                               | line | 11+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| residential roads                   | residential    | name                               | line | 11+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| residential roads w/traffic calming | living\_street | name                               | line | 12+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| service roads                       | service        | name                               | line | 12+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| pedestrian roads                    | pedestrian     | name                               | line | 12+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| tracks                              | track          | name                               | line | 12+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| footpaths                           | footway        | name                               | line | 13+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| steps                               | steps          | name                               | line | 13+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| unspecified paths                   | path           | name                               | line | 13+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
-| bicycle paths                       | cycleway       | name                               | line | 13+ |
-|                                     |                | link = true, null                  |      |     |
-|                                     |                | tunnel, bridge = true, false, null |      |     |
-|                                     |                | surface = paved, unpaved           |      |     |
+### Features 
 
-### Paths on Airports
+|                                     | kind           | zoom | comment                                                                              |
+| ----------------------------------- | :------------- | :--- | :----------------------------------------------------------------------------------- |
+| **Roads and paths**                                                                                                                             ||||
+| motorway                            | motorway       | 5+   |                                                                                      |
+| trunk roads                         | trunk          | 5+   |                                                                                      |
+| primary roads                       | primary        | 6+   |                                                                                      |
+| secondary roads                     | secondary      | 9+   |                                                                                      |
+| tertiary roads                      | tertiary       | 11+  |                                                                                      |
+| side roads                          | unclassified   | 11+  |                                                                                      |
+| residential roads                   | residential    | 11+  |                                                                                      |
+| residential roads w/traffic calming | living\_street | 12+  |                                                                                      |
+| service roads                       | service        | 12+  |                                                                                      |
+| pedestrian roads                    | pedestrian     | 12+  |                                                                                      |
+| tracks                              | track          | 12+  |                                                                                      |
+| footpaths                           | footway        | 13+  |                                                                                      |
+| steps                               | steps          | 13+  |                                                                                      |
+| unspecified paths                   | path           | 13+  | use the `bicycle` and `horse` attributes for details about permitted use of the path |
+| bicycle paths                       | cycleway       | 13+  |                                                                                      |
+| **Runways and taxiways on airports**                                                                                                            ||||
+| runway                              | runway         | 11+  |                                                                                      |
+| taxiway                             | taxiway        | 11+  |                                                                                      |
+| **Railway tracks**                                                                                                                              ||||
+| railway                             | rail           | 5+   |                                                                                      |
+| narrow gauge railway                | narrow\_gauge  | 10+  |                                                                                      |
+| tram                                | tram           | 10+  |                                                                                      |
+| light railway                       | light\_rail    | 10+  |                                                                                      |
+| funicular                           | funicular      | 10+  |                                                                                      |
+| subway                              | subway         | 10+  |                                                                                      |
+| monorail                            | monorail       | 10+  |                                                                                      |
 
-|         | class   | attributes                         | geometry | zoom |
-| ------- | :------ | :--------------------------------- | :------- | :--- |
-| runway  | runway  | name                               | line     | 11+  |
-|         |         | link=true, null                    |          |      |
-|         |         | tunnel, bridge = true, false, null |          |      |
-| taxiway | taxiway | name                               | line     | 11+  |
-|         |         | link=true, null                    |          |      |
-|         |         | tunnel, bridge = true, false, null |          |      |
-
-### Railway Tracks
-
-|                      | class         | attributes                         | geometry | zoom |
-| -------------------- | :------------ | :--------------------------------- | :------- | :--- |
-| railway              | rail          | tunnel, bridge = true, false, null | line     | 5+   |
-|                      |               | service                            |          |      |
-| narrow gauge railway | narrow\_gauge | tunnel, bridge = true, false, null | line     | 10+  |
-|                      |               | service                            |          |      |
-| tram                 | tram          | tunnel, bridge = true, false, null | line     | 10+  |
-|                      |               | service                            |          |      |
-| light railway        | light\_rail   | tunnel, bridge = true, false, null | line     | 10+  |
-|                      |               | service                            |          |      |
-| funicular            | funicular     | tunnel, bridge = true, false, null | line     | 10+  |
-|                      |               | service                            |          |      |
-| subway               | subway        | tunnel, bridge = true, false, null | line     | 10+  |
-|                      |               | service                            |          |      |
-| monorail             | monorail      | tunnel, bridge = true, false, null | line     | 10+  |
-|                      |               | service                            |          |      |
-
-## streets\_med
-
-Subset of streets layer only used up to z13.
-
-## streets\_low
-
-Subset of streets layer only used up to z9.
 
 ## Layer "street\_labels"
 
 ## streets\_labels\_points
 
-### Shields
+This layer holds motorway exit labels.
 
-t.b.d.
+### Properties
 
-### Junctions
+| field name | type     | OSM        |
+| ---------- | :------- | :--------- |
+| kind       | string   | highway=*  |
+| ref        | string   | ref=*      |
 
-|               | kind               | OSM                | label | geometry | zoom |
-| ------------- | :----------------- | :----------------- | :---- | :------- | :--- |
-| motorway exit | motorway\_junction | highway=           | name, | point    | 15+  |
-|               |                    | motorway\_junction | ref   |          |      |
+### Features
+
+The following features are available in this layer:
+
+|                      | kind               | zoom |
+| -------------------- | :----------------- | :--- |
+| motorway exit points | motorway\_junction | 12+  |
 
 ## Layer "aerialways"
 
-|                 | kind        | OSM                    | label | geometry | zoom |
-| --------------- | :---------- | :--------------------- | :---- | :------- | :--- |
-| cable car       | cable\_car  | aerialways=cable\_car  |       | line     | 12+  |
-| gondola         | gondola     | aerialways=gondola     |       | line     | 12+  |
-| goods cable car | goods       | aerialways=goods       |       | line     | 12+  |
-| chair lift      | chair\_lift | aerialways=chair\_lift |       | line     | 12+  |
-| drag lift       | drag\_lift  | aerialways=drag\_lift  |       | line     | 12+  |
-| t-bar lift      | t-bar       | aerialways=t-bar       |       | line     | 12+  |
-| j-bar lift      | j-bar       | aerialways=j-bar       |       | line     | 12+  |
-| platter lift    | platter     | aerialways=platter     |       | line     | 12+  |
-| rope-tow lift   | rope-tow    | aerialways=rope\_tow   |       | line     | 12+  |
+Holds aerialways as lines.
+
+### Properties
+
+| field name | type     | OSM          |
+| ---------- | :------- | :----------- |
+| kind       | string   | aerialway=*  |
+
+
+### Features
+
+|                 | kind        | OSM                    | zoom |
+| --------------- | :---------- | :--------------------- | :--- |
+| cable car       | cable\_car  | aerialways=cable\_car  | 12+  |
+| gondola         | gondola     | aerialways=gondola     | 12+  |
+| goods cable car | goods       | aerialways=goods       | 12+  |
+| chair lift      | chair\_lift | aerialways=chair\_lift | 12+  |
+| drag lift       | drag\_lift  | aerialways=drag\_lift  | 12+  |
+| t-bar lift      | t-bar       | aerialways=t-bar       | 12+  |
+| j-bar lift      | j-bar       | aerialways=j-bar       | 12+  |
+| platter lift    | platter     | aerialways=platter     | 12+  |
+| rope-tow lift   | rope-tow    | aerialways=rope\_tow   | 12+  |
+
 
 ## Layer "public\_transport"
 
-|                    | kind      | OSM               | label | geometry | zoom |
-| ------------------ | :-------- | :---------------- | :---- | :------- | :--- |
-| station            | station   | railway=station   | name  | point    | 11+  |
-| halt               | halt      | railway=halt      | name  | point    | 11+  |
-| airport, aerodrome | aerodrome | aeroway=aerodrome | name  | point    | 11+  |
+Holds public transport stops as points. Areas in OSM are represented by their centroid.
+
+### Properties
+
+| field name | type   | description                |
+| ---------- | :----- | :------------------------- |
+| kind       | string | feature class              |
+| name       | string | value of OSM name=* tag    |
+| name_en    | string | value of OSM name=:en* tag |
+| name_de    | string | value of OSM name=:de* tag |
+
+### Features
+
+|                    | kind               | OSM                | zoom |
+| ------------------ | :----------------- | :----------------- | :--- |
+| airport, aerodrome | aerodrome          | aeroway=aerodrome  | 11+  |
+| station            | station            | railway=station    | 13+  |
+| halt               | halt               | railway=halt       | 13+  |
+| tram_stop          | tram\_stop         | railway=tram\_stop | 14+  |
+| aerialway station  | aerialway\_station | aerialway=station  | 13+  |
