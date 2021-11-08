@@ -13,7 +13,13 @@ It does not, and is not intended to, cover the full breadth and depth of OpenStr
 
 This document describes the layers that are defined in the vector tile schema, and the features and attributes available on each layer.
 
-## **Water**
+
+## Feature sorting
+
+Some layers have their features sorted by importance or rendering order. This allows you to use rendering engines which do not support feature sorting themselves.
+
+
+## Water
 
 ### Layer "ocean"
 
@@ -72,14 +78,23 @@ Holds waterway line geometries.
 
 |        | `kind` | OSM tag         | Geometry | Zoom |
 | ------ | :----- | :-------------- | :------- | :--- |
-| canal  | canal  | waterway=canal  | line     | 10+  |
-| river  | river  | waterway=river  | line     | 10+  |
+| canal  | canal  | waterway=canal  | line     | Canals are available if their line is longer than 0.25 pixel but not below 9. |
+| river  | river  | waterway=river  | line     | Rivers are available if their line is longer than 0.25 pixel but not below 9. |
 | stream | stream | waterway=stream | line     | 14+  |
 | ditch  | ditch  | waterway=ditch  | line     | 14+  |
 
 ### Layer "water\_lines\_labels"
 
-Hold line geometries and names for water lines.
+Hold line geometries and names for named water lines.
+
+#### Minimum Zoom Levels
+
+| Feature | Zoom                                                                           |
+| ------- | :----------------------------------------------------------------------------- |
+| canal   | Canals are available if their line is longer than 0.25 pixel but not below 12. |
+| river   | Rivers are available if their line is longer than 0.25 pixel but not below 12. |
+| stream  | 14+                                                                            |
+| ditch   | 14+                                                                            |
 
 #### Properties
 
@@ -113,21 +128,23 @@ Holds boundary lines of countries and states.
 
 ### Layer "boundary\_labels"
 
-Holds label points for boundary polygons of countries and states
+Holds label points for boundary polygons of countries and states. Features are sorted by `way_area` in
+descending order.
 
 
 #### Properties
 
-| Field name    | Type   | Description                                                                |
-| ------------- | :----- | :------------------------------------------------------------------------- |
-| `admin_level` | string | value of OSM `admin_level=*` tag, see Features section for possible values |
-| `name`        | string | value of OSM `name=*` tag                                                  |
-| `name_en`     | string | value of OSM `name:en=*` tag                                               |
-| `name_de`     | string | value of OSM `name:de=*` tag                                               |
+| Field name    | Type    | Description                                                                |
+| ------------- | :------ | :------------------------------------------------------------------------- |
+| `admin_level` | string  | value of OSM `admin_level=*` tag, see Features section for possible values |
+| `way_area`    | numeric | area in ha                                                                 |
+| `name`        | string  | value of OSM `name=*` tag                                                  |
+| `name_en`     | string  | value of OSM `name:en=*` tag                                               |
+| `name_de`     | string  | value of OSM `name:de=*` tag                                               |
 
 #### Features
 
-|           | Value of `admin_level` | Geometry | Minimum Area | Zoom |
+|           | Value of `admin_level`  | Geometry | Minimum Area | Zoom |
 | --------- | :---------------------- | :------- | :----------- | :--- |
 | countries | 2                       | line     | 2*10^6 km²   | 2+   |
 | countries | 2                       | line     | 7*10^5 km²   | 3+   |
@@ -139,7 +156,7 @@ Holds label points for boundary polygons of countries and states
 
 ### Layer "place\_labels"
 
-Holds label points for populated places.
+Holds label points for populated places. Features are sorted by `population` in descending order.
 
 #### Properties
 
@@ -163,7 +180,7 @@ Holds label points for populated places.
 | hamlet            | `hamlet`             | `place=hamlet` (except capitals)                 | point    | 10+  |
 | suburb            | `suburb`             | `place=suburb`                                   | point    | 10+  |
 | neighbourhood     | `neighbourhood`      | `place=neighbourhood`                            | point    | 10+  |
-| isolated dewlling | `isolated_dwelling` | `place=isolated_dwelling`                        | point    | 10+  |
+| isolated dewlling | `isolated_dwelling`  | `place=isolated_dwelling`                        | point    | 10+  |
 | farm              | `farm`               | `place=farm`                                     | point    | 10+  |
 
 ## Land Use, Land Cover, Buildings
@@ -193,7 +210,7 @@ This layer contains basic land cover that is usually drawn first.
 | village_green           | `landuse=village_green`            | polygon  | 11+  |
 | recreation_ground       | `landuse=recreation_ground`        | polygon  | 11+  |
 | greenhouse_horticulture | `landuse=greenhouse_horticulture`  | polygon  | 11+  |
-| planet_nursery          | `landuse=greenhouse_horticulture`  | polygon  | 11+  |
+| planet_nursery          | `landuse=plant_nursery`            | polygon  | 11+  |
 | sand                    | `natural=sand`                     | polygon  | 10+  |
 | scrub                   | `natural=beach`                    | polygon  | 10+  |
 | heath                   | `natural=heath`                    | polygon  | 11+  |
@@ -218,7 +235,7 @@ This layer contains basic land cover that is usually drawn first.
 | retail                  | `landuse=retail`                   | polygon  | 10+  |
 | railway                 | `landuse=railway`                  | polygon  | 10+  |
 | landfill                | `landuse=landfill`                 | polygon  | 10+  |
-| quarry                  | `landuse=quarry`                   | polygon  | 10+  |
+| quarry                  | `landuse=quarry`                   | polygon  | 11+  |
 | brownfield              | `landuse=brownfield`               | polygon  | 10+  |
 | greenfield              | `landuse=greenfield`               | polygon  | 10+  |
 | farmyard                | `landuse=farmyard`                 | polygon  | 10+  |
@@ -247,7 +264,7 @@ zoom 14 on.
 
 ### Layer "addresses"
 
-Has points for everything with an address from zoom 14+.
+Has points for everything with an address from zoom 14+. Polygons are represented by their centroid.
 
 #### Properties
 
@@ -260,64 +277,157 @@ Has points for everything with an address from zoom 14+.
 
 ### Layer "streets"
 
+Holds line geometries of the whole road network. Features are ordered by the so-called z-order value which is computed
+from road class, OSM `layer=*`, `bridge=*` and `tunnel=*` tags. More important roads are are sorted before less important roads, tunnels before bridges.
+
 #### Properties
 
-| Field Name | Type     | Zoom | OSM Keys                  | Note                                                                             |
-| ---------- | :------- | :--- | :------------------------ | :------------------------------------------------------------------------------- |
-| kind       | string   | 6+   | `highway=*`, `railway=*`  | feature type (road class or type of railway)                                     |
-| link       | boolean  | 6+   |                           | true for link roads (`highway=(motorway|trunk|primary|secondary|tertiary)_link`) |
-| rail       | boolean  | 11+  |                           | true for railways, `false` otherwise                                             |
-| tunnel     | boolean  | 11+  | `tunnel=*`                | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise       |
-| bridge     | boolean  | 11+  | `bridge=*`                | true for `bridge=yes`, `false` otherwise                                         |
-| tracktype  | string   | 11+  | `tracktype=*`             |                                                                                  |
-| surface    | string   | 11+  | `surface=*`               |                                                                                  |
-| service    | string   | 11+  | `service=*`               | available on all features if set in OSM                                          |
-| bicycle    | string   | 14+  | `bicycle=*`               |                                                                                  |
-| horse      | string   | 14+  | `horse=*`                 |                                                                                  |
-| name       | string   | 6+   | `name=*`                  |                                                                                  |
+| Field Name | Type     | Zoom | Default             | Description                                                                      |
+| ---------- | :------- | :--- | :------------------ | :------------------------------------------------------------------------------- |
+| kind       | string   | 5+   | always set          | Feature class, contains value of `highway=*` or `railway=*`                      |
+| link       | boolean  | 11+  | false               | true for link roads (`highway=(motorway|trunk|primary|secondary|tertiary)_link`) |
+| rail       | boolean  | 5+   | false               | true for railways, false otherwise                                               |
+| tunnel     | boolean  | 11+  | false               | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise       |
+| bridge     | boolean  | 11+  | false               | true for `bridge=yes`, `false` otherwise                                         |
+| tracktype  | string   | 11+  | field not available | value of `tracktype=*`                                                           |
+| surface    | string   | 11+  | empty string        | value of `surface=*`                                                             |
+| service    | string   | 11+  | field not available | value of `service=*`                                                             |
+| bicycle    | string   | 14+  | empty string        | value of `bicycle=*`                                                             |
+| horse      | string   | 14+  | empty string        | value of `horse=*`                                                               |
 
-#### Features 
+#### Features
 
-| Feature Class                       | value of `kind`  | Zoom | Comment                                                                              |
-| ----------------------------------- | :--------------- | :--- | :----------------------------------------------------------------------------------- |
-| motorway                            | `motorway`       | 5+   |                                                                                      |
-| trunk roads                         | `trunk`          | 5+   |                                                                                      |
-| primary roads                       | `primary`        | 6+   |                                                                                      |
-| secondary roads                     | `secondary`      | 9+   |                                                                                      |
-| tertiary roads                      | `tertiary`       | 11+  |                                                                                      |
-| side roads                          | `unclassified`   | 11+  |                                                                                      |
-| residential roads                   | `residential`    | 11+  |                                                                                      |
-| residential roads w/traffic calming | `living_street`  | 12+  |                                                                                      |
-| service roads                       | `service`        | 12+  |                                                                                      |
-| pedestrian roads                    | `pedestrian`     | 12+  |                                                                                      |
-| tracks                              | `track`          | 12+  |                                                                                      |
-| footpaths                           | `footway`        | 13+  |                                                                                      |
-| steps                               | `steps`          | 13+  |                                                                                      |
-| unspecified paths                   | `path`           | 13+  | use the `bicycle` and `horse` attributes for details about permitted use of the path |
-| bicycle paths                       | `cycleway`       | 13+  |                                                                                      |
-| runway                              | `runway`         | 11+  |                                                                                      |
-| taxiway                             | `taxiway`        | 11+  |                                                                                      |
-| railway                             | `rail`           | 5+   |                                                                                      |
-| narrow gauge railway                | `narrow_gauge`   | 10+  |                                                                                      |
-| tram                                | `tram`           | 10+  |                                                                                      |
-| light railway                       | `light_rail`     | 10+  |                                                                                      |
-| funicular                           | `funicular`      | 10+  |                                                                                      |
-| subway                              | `subway`         | 10+  |                                                                                      |
-| monorail                            | `monorail`       | 10+  |                                                                                      |
+The following features are available in this layer:
+
+| Feature Class                       | value of `kind`  | Zoom  | Comment                                                                              |
+| ----------------------------------- | :--------------- | :---- | :----------------------------------------------------------------------------------- |
+| motorway                            | `motorway`       | 5+    |                                                                                      |
+| trunk roads                         | `trunk`          | 6+    |                                                                                      |
+| primary roads                       | `primary`        | 8+    |                                                                                      |
+| secondary roads                     | `secondary`      | 9+    |                                                                                      |
+| tertiary roads                      | `tertiary`       | 10+   |                                                                                      |
+| side roads                          | `unclassified`   | 12+   |                                                                                      |
+| residential roads                   | `residential`    | 12+   |                                                                                      |
+| residential roads w/traffic calming | `living_street`  | 13+   |                                                                                      |
+| service roads                       | `service`        | 13+   |                                                                                      |
+| pedestrian roads                    | `pedestrian`     | 13+   |                                                                                      |
+| tracks                              | `track`          | 13+   |                                                                                      |
+| footpaths                           | `footway`        | 13+   |                                                                                      |
+| steps                               | `steps`          | 13+   |                                                                                      |
+| unspecified paths                   | `path`           | 13+   | use the `bicycle` and `horse` attributes for details about permitted use of the path |
+| bicycle paths                       | `cycleway`       | 13+   |                                                                                      |
+| runway                              | `runway`         | 11+   |                                                                                      |
+| taxiway                             | `taxiway`        | 13+   |                                                                                      |
+| railway                             | `rail`           | 8/10+ | ways with `service=*` on zoom level 8+, other ways on zoom level 10+                 |
+| narrow gauge railway                | `narrow_gauge`   | 8+    | ways with `service=*` on zoom level 8+, other ways on zoom level 10+                 |
+| tram                                | `tram`           | 10+   |                                                                                      |
+| light railway                       | `light_rail`     | 10+   |                                                                                      |
+| funicular                           | `funicular`      | 10+   |                                                                                      |
+| subway                              | `subway`         | 10+   |                                                                                      |
+| monorail                            | `monorail`       | 10+   |                                                                                      |
+
+### Layer "street_polygons"
+
+Holds polygons geometries of certain streets mapped as polygons. Features are ordered by the so-called z-order value which is computed
+from road class, OSM `layer=*`, `bridge=*` and `tunnel=*` tags. More important roads are are sorted before less important roads, tunnels before bridges.
+
+#### Properties
+
+| Field Name | Type     | Default             | Description                                                                      |
+| ---------- | :------- | :------------------ | :------------------------------------------------------------------------------- |
+| kind       | string   | always set          | Feature class, contains value of `highway=*`                      |
+| rail       | boolean  | false               | true for railways, false otherwise                                               |
+| tunnel     | boolean  | false               | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise       |
+| bridge     | boolean  | false               | true for `bridge=yes`, `false` otherwise                                         |
+| surface    | string   | empty string        | value of `surface=*`                                                             |
+
+#### Features
+
+The following features are available in this layer:
+
+| Feature Class  | value of `kind`  | Zoom  |
+| -------------- | :--------------- | :---- |
+| pedestrian     | `pedestrian`     | 14+   |
+| service roads  | `service`        | 14+   |
 
 
-### Layer "street\_labels"
+## Layer "street\_labels"
 
-### streets\_labels\_points
+This layer holds street geometries for labelling. It contains their names and reference numbers.
+
+#### Features
+
+| Feature Class                       | value of `kind`  | Zoom  |
+| ----------------------------------- | :--------------- | :---- |
+| motorway                            | `motorway`       | 10+   |
+| motorway links                      | `motorway_link`  | 13+   |
+| trunk roads                         | `trunk`          | 12+   |
+| trunk roads                         | `trunk_link`     | 13+   |
+| primary roads                       | `primary`        | 12+   |
+| primary links                       | `primary_link`   | 13+   |
+| secondary roads                     | `secondary`      | 13+   |
+| secondary links                     | `secondary_link` | 13+   |
+| tertiary roads                      | `tertiary`       | 13+   |
+| teratiary links                     | `tertiary_link`  | 14+   |
+| side roads                          | `unclassified`   | 14+   |
+| residential roads                   | `residential`    | 14+   |
+| residential roads w/traffic calming | `living_street`  | 14+   |
+| service roads                       | `service`        | 14+   |
+| pedestrian roads                    | `pedestrian`     | 14+   |
+| tracks                              | `track`          | 14+   |
+| footpaths                           | `footway`        | 14+   |
+| steps                               | `steps`          | 14+   |
+| unspecified paths                   | `path`           | 14+   |
+| bicycle paths                       | `cycleway`       | 14+   |
+
+#### Properties
+
+| Field Name   | Type     | OSM Key                                                                                  |
+| ------------ | :------- | :--------------------------------------------------------------------------------------- |
+| `kind`       | string   | value of OSM `highway=*` tag                                                             |
+| `ref`        | string   | value of OSM `ref=*` tag, semicolons replaced by newline characters (ASCII character 10) |
+| `ref_rows`   | numeric  | number of lines of the `ref` value                                                       |
+| `ref_cols`   | numeric  | maximum line length of the `ref` value                                                   |
+| `name`       | string   | value of OSM `name=*` tag                                                                |
+| `name_en`    | string   | value of OSM `name:en=*` tag                                                             |
+| `name_de`    | string   | value of OSM `name:de=*` tag                                                             |
+
+### Layer "streets_polygons_labels"
+
+Holds labelling points of the polygons of the "streets_polygons" layer.
+
+#### Properties
+
+| Field Name   | Type     | OSM Key                       |
+| ------------ | :------- | :---------------------------- |
+| `kind`       | string   | value of OSM `highway=*` tag  |
+| `name`       | string   | value of OSM `name=*` tag     |
+| `name_en`    | string   | value of OSM `name:en=*` tag  |
+| `name_de`    | string   | value of OSM `name:de=*` tag  |
+
+#### Features
+
+The following features are available in this layer:
+
+| Feature Class  | value of `kind`  | Zoom  |
+| -------------- | :--------------- | :---- |
+| pedestrian     | `pedestrian`     | 14+   |
+| service roads  | `service`        | 14+   |
+
+
+## Layer "streets\_labels\_points"
 
 This layer holds motorway exit labels.
 
 #### Properties
 
-| Field Name   | Type     | OSM Key      |
-| ------------ | :------- | :----------- |
-| `kind`       | string   | `highway=*`  |
-| `ref`        | string   | `ref=*`      |
+| Field Name   | Type    | OSM Key                      |
+| ------------ | :------ | :--------------------------- |
+| `kind`       | string  | value of OSM `highway=*` tag |
+| `ref`        | string  | value of OSM `ref=*` tag     |
+| `name`       | string  | value of OSM `name=*` tag    |
+| `name_en`    | string  | value of OSM `name:en=*` tag |
+| `name_de`    | string  | value of OSM `name:de=*` tag |
 
 #### Features
 
