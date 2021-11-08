@@ -319,7 +319,7 @@ article section.page {
   article section.page h2 {
     margin-top: 3rem; }
   article section.page table {
-    width: 100%;
+    /*width: 100%;*/
     margin-bottom: 2em;
     border-collapse: collapse;
     border-spacing: 0;
@@ -329,9 +329,9 @@ article section.page {
       padding: 0.25rem 0.75rem; }
     article section.page table th {
       padding: 0.5rem;
-      text-transform: uppercase;
+      /*text-transform: uppercase;*/
       vertical-align: middle;
-      text-align: center;
+      /*text-align: center;*/
       font-weight: 800;
       background: #f6f6f6;
       color: black;
