@@ -1,0 +1,13 @@
+baseURL = ""
+languageCode = "en-us"
+title = "Shortbread"
+theme = "hugo-theme-docdock"
+pygmentsCodeFences = true
+pygmentsStyle = "monokailight"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir= false
+enableMissingTranslationPlaceholders = false
+
+[params]
+ordersectionsby = "weight"
