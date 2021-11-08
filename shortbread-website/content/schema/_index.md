@@ -351,7 +351,7 @@ The following features are available in this layer:
 | service roads  | `service`        | 14+   |
 
 
-## Layer "street\_labels"
+### Layer "street\_labels"
 
 This layer holds street geometries for labelling. It contains their names and reference numbers.
 
@@ -415,7 +415,7 @@ The following features are available in this layer:
 | service roads  | `service`        | 14+   |
 
 
-## Layer "streets\_labels\_points"
+### Layer "streets\_labels\_points"
 
 This layer holds motorway exit labels.
 
