@@ -25,9 +25,7 @@ Some layers have their features sorted by importance or rendering order. This al
 
 This layer contains oceans.
 
-|            |              | Geometry| Zoom |
-| ---------- | :----------- | :------ | :-   |
-| coastlines | sea polygons | polygon | 0+   |
+Additional attributes are provided only to make GDAL read features from this layer. They have no other meaning.
 
 ### Layer "water\_polygons"
 
@@ -114,9 +112,9 @@ Holds boundary lines of countries and states.
 
 #### Properties
 
-| Field name    | Type   | Description                                                                |
-| ------------- | :----- | :------------------------------------------------------------------------- |
-| `admin_level` | string | value of OSM `admin_level=*` tag, see Features section for possible values |
+| Field name    | Type   | Description                                          |
+| ------------- | :----- | :--------------------------------------------------- |
+| `admin_level` | number | highest administrative boundary this line belongs to |
 
 
 #### Features
@@ -166,22 +164,24 @@ Holds label points for populated places. Features are sorted by `population` in 
 | `name`       | string  | value of OSM `name=*` tag                                              |
 | `name_en`    | string  | value of OSM `name:en=*` tag                                           |
 | `name_de`    | string  | value of OSM `name:de=*` tag                                           |
-| `population` | numeric | value of OSM `population=*` tag                                        |
+| `population` | numeric | value of OSM `population=*` tag, else defaults (see below)             |
 
 #### Features
 
-|                   | Value of `kind`      | OSM Tags                                         | Geometry | Zoom |
-| ----------------- | :------------------- | :----------------------------------------------- | :------- | :--- |
-| national capital  | `capital`            | `place=city/town/village/hamlet` + `capital=yes` | point    | 4+   |
-| state capital     | `state_capital`      | `place=city/town/village/hamlet` + `capital=4`   | point    | 4+   |
-| city              | `city`               | `place=city` (except capitals)                   | point    | 6+   |
-| town              | `town`               | `place=town` (except capitals)                   | point    | 7+   |
-| village           | `village`            | `place=village` (except capitals)                | point    | 10+  |
-| hamlet            | `hamlet`             | `place=hamlet` (except capitals)                 | point    | 10+  |
-| suburb            | `suburb`             | `place=suburb`                                   | point    | 10+  |
-| neighbourhood     | `neighbourhood`      | `place=neighbourhood`                            | point    | 10+  |
-| isolated dewlling | `isolated_dwelling`  | `place=isolated_dwelling`                        | point    | 10+  |
-| farm              | `farm`               | `place=farm`                                     | point    | 10+  |
+|                   | Value of `kind`      | OSM Tags                                         | Geometry | Zoom | Default Population |
+| ----------------- | :------------------- | :----------------------------------------------- | :------- | :--- | :----------------- |
+| national capital  | `capital`            | `place=city/town/village/hamlet` + `capital=yes` | point    | 4+   | depends on place=* |
+| state capital     | `state_capital`      | `place=city/town/village/hamlet` + `capital=4`   | point    | 4+   | depends on place=* |
+| city              | `city`               | `place=city` (except capitals)                   | point    | 6+   | 100,000            |
+| town              | `town`               | `place=town` (except capitals)                   | point    | 7+   | 5,000              |
+| village           | `village`            | `place=village` (except capitals)                | point    | 10+  | 100                |
+| hamlet            | `hamlet`             | `place=hamlet` (except capitals)                 | point    | 10+  | 50                 |
+| suburb            | `suburb`             | `place=suburb`                                   | point    | 10+  | 1,000              |
+| neighbourhood     | `neighbourhood`      | `place=neighbourhood`                            | point    | 10+  | 100                |
+| isolated dewlling | `isolated_dwelling`  | `place=isolated_dwelling`                        | point    | 10+  | 5                  |
+| farm              | `farm`               | `place=farm`                                     | point    | 10+  | 5                  |
+| island            | `island`             | `place=island`                                   | point    | 10+  | 0                  |
+| unpopolate place  | `locality`           | `place=locality`                                 | point    | 10+  | 0                  |
 
 ## Land Use, Land Cover, Buildings
 
