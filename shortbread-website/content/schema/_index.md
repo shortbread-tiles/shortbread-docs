@@ -112,9 +112,10 @@ Holds boundary lines of countries and states.
 
 #### Properties
 
-| Field name    | Type   | Description                                          |
-| ------------- | :----- | :--------------------------------------------------- |
-| `admin_level` | number | highest administrative boundary this line belongs to |
+| Field name    | Type    | Description                                                   |
+| ------------- | :------ | :------------------------------------------------------------ |
+| `admin_level` | number  | highest administrative boundary this line belongs to          |
+| `maritime`    | boolena | Boundary line is located on sea, base on OSM `maritime=*` tag |
 
 
 #### Features
