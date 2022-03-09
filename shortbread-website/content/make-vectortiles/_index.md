@@ -31,8 +31,8 @@ Installation of Tilemaker is described in the [Tilemaker Readme](https://github.
 Clone the Git repository of the vector tile schema from Github:
 
 ```sh
-mkdir geofabrik-basicvt-tilemaker
-git clone https://github.com/geofabrik/geofabrik-basicvt-tilemaker.git geofabrik-basicvt-tilemaker
+mkdir shortbread-tilemaker
+git clone https://github.com/geofabrik/shortbread-tilemaker.git shortbread-tilemaker
 ```
 
 ## Download Ocean Shape Files
@@ -44,7 +44,7 @@ Tilemaker requires shape files in geographic coordinates (EPSG:4326) but the sim
 in Web Mercator (EPSG:3857) only. Therefore, GDAL's *ogr2ogr* is used to transform the shape file.
 
 ```sh
-cd geofabrik-basicvt-tilemaker
+cd shortbread-tilemaker
 ./get-shapefiles.py
 ```
 
@@ -62,7 +62,7 @@ Generating vector tiles seems to be pretty simple but there are some show stoppe
   The bounding box is applied on all input sources (OSM data and shape file) and decides which
   vector tiles will be created at all. Cache size depends on the number of tiles.
 
-Run Tilemaker (this command should be executed from the `geofabrik-basicvt-tilemaker` directory):
+Run Tilemaker (this command should be executed from the `shortbread-tilemaker` directory):
 
 ```sh
 tilemaker --bbox -180,-86,180,86 --input planet-latest.osm.pbf --store tilemaker-cache.dat --config config.json --process process.lua --output output_directory/

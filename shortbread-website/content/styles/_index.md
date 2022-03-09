@@ -12,7 +12,7 @@ The following open source rendering styles are available for Shortbread vector t
 
 | Name                                              | Rendering Engine  | Source code                                                     | Demo |
 | ------------------------------------------------- | :---------------- | :-------------------------------------------------------------- | ---- |
-| [Shortbread Basic Color](#shortbread-basic-color) | Mapnik (CartoCSS) | [GitHub](https://github.com/geofabrik/geofabrik-basicvt-styles) | n/a  |
+| [Shortbread Basic Color](#shortbread-basic-color) | Mapnik (CartoCSS) | [GitHub](https://github.com/geofabrik/shortbread-mapnik) | n/a  |
 
 
 ## Styles for Mapnik
