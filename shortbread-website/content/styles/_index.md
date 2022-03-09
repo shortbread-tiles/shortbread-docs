@@ -12,12 +12,12 @@ The following open source rendering styles are available for Shortbread vector t
 
 | Name                                              | Rendering Engine  | Source code                                                     | Demo |
 | ------------------------------------------------- | :---------------- | :-------------------------------------------------------------- | ---- |
-| [Shortbread Basic Color](#shortbread-basic-color) | Mapnik (CartoCSS) | [GitHub](https://github.com/geofabrik/shortbread-mapnik) | n/a  |
+| [Shortbread-Mapnik](#shortbread-mapnik)           | Mapnik (CartoCSS) | [GitHub](https://github.com/geofabrik/shortbread-mapnik) | n/a  |
 
 
 ## Styles for Mapnik
 
-### Shortbread Basic Color
+### Shortbread-Mapnik
 
-Shortbread Basic Color is a colored base map style rendering roads, landuse, water, places, buildings and important boundaries
+Shortbread-Mapnik is a colored base map style rendering roads, landuse, water, places, buildings and important boundaries
 without being too detailed.
