@@ -9,3 +9,5 @@ This repository contains the description of the tile schema, i.e. the available 
  attributes.
 
 This schema documentation is published under the terms of the CC-0 license, generated using the Hugo framework, and the source is [on GitHub.](https://github.com/geofabrik/shortbread-docs)
+
+Shortbread was made (and is currently maintained) by Geofabrik GmbH, however it is intended to be a true community project and contributions are always welcome.
