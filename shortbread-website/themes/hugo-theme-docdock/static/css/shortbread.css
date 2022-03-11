@@ -33,3 +33,7 @@ article section.page h1:first-of-type {
 article section.page img {
     display: initial;
 }
+
+footer a {
+    text-decoration: underline;
+}
