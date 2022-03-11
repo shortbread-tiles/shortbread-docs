@@ -29,3 +29,7 @@ article section.page h1:first-of-type {
 #navigation a {
     color: #707070;
 }
+
+article section.page img {
+    display: initial;
+}
