@@ -19,11 +19,28 @@ In order to build vector tiles, you have to provide the following dependencies:
 * Curl
 * Unzip
 * GDAL
-* Install Tilemaker (see below)
+* Install Tilemaker (Geofabrik fork, `z-order-float` branch = [upstream pull request 393](https://github.com/systemed/tilemaker/pull/393))
 
 Ubuntu/Debian: `apt install curl unzip gdal-bin`
 
-Installation of Tilemaker is described in the [Tilemaker Readme](https://github.com/systemed/tilemaker/#installing).
+## Tilemaker Installation
+
+The Shortbread vector tile schema requires a special feature of Tilemaker (sorting features in a
+layer by a float number). Therefore, upstream Tilemaker is not compatible. Instead, you have to
+install a branch by Geofabrik:
+
+Clone Tilemaker:
+
+```sh
+git clone --branch z-order-float https://github.com/geofabrik/tilemaker.git
+cd tilemaker
+mkdir build
+cd build
+cmake ..
+make
+```
+
+Installation of Tilemaker is described in the [Tilemaker Readme](https://github.com/geofabrik/tilemaker/#installing) as well.
 
 
 ## Clone Schema Repository
