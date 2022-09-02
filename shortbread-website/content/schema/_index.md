@@ -114,8 +114,8 @@ Holds boundary lines of countries and states.
 
 | Field name    | Type    | Description                                                   |
 | ------------- | :------ | :------------------------------------------------------------ |
-| `admin_level` | string  | highest administrative boundary this line belongs to          |
-| `maritime`    | boolena | Boundary line is located on sea, base on OSM `maritime=*` tag |
+| `admin_level` | numeric | highest administrative boundary this line belongs to          |
+| `maritime`    | boolean | Boundary line is located on sea, base on OSM `maritime=*` tag |
 
 
 #### Features
@@ -135,7 +135,7 @@ descending order.
 
 | Field name    | Type    | Description                                                                |
 | ------------- | :------ | :------------------------------------------------------------------------- |
-| `admin_level` | string  | value of OSM `admin_level=*` tag, see Features section for possible values |
+| `admin_level` | numeric | value of OSM `admin_level=*` tag, see Features section for possible values |
 | `way_area`    | numeric | area in ha                                                                 |
 | `name`        | string  | value of OSM `name=*` tag                                                  |
 | `name_en`     | string  | value of OSM `name:en=*` tag                                               |
