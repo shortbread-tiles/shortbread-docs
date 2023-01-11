@@ -69,13 +69,15 @@ descending order.
 
 ### Layer "water\_lines"
 
-Holds waterway line geometries.
+Holds waterway line geometries. Features are sorted by their `layer=*` tags in OpenStreetMap in ascending order (default 0).
 
 #### Properties
 
-| Field Name | Type   | Description      |
-| ---------- | :----- | :--------------- |
-| `kind`     | string | type of waterway |
+| Field Name | Type    | Default | Description                                                                |
+| ---------- | :------ | :------ | :------------------------------------------------------------------------- |
+| `kind`     | string  |         | type of waterway                                                           |
+| `tunnel`   | boolean | false   | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise |
+| `bridge`   | boolean | false   | true for `bridge=yes`, `false` otherwise                                   |
 
 #### Features
 
