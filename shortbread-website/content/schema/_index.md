@@ -39,15 +39,15 @@ This layer contains inland water bodies and glaciers.
 
 #### Features
 
-|           | `kind`    | OSM tag              | Geometry | Zoom |
-| --------- | :-------- | :------------------- | :------- | :--- |
-| glacier   | glacier   | `natural=glacier`    | polygon  | 4+   |
-| water     | water     | `natural=water`      | polygon  | 4+   |
-| river     | river     | `waterway=riverbank` | polygon  | 4+   |
-| reservoir | reservoir | `landuse=reservoir`  | polygon  | 4+   |
-| reservoir | basin     | `landuse=basin`      | polygon  | 4+   |
-| dock      | dock      | `waterway=dock`      | polygon  | 10+  |
-| canal     | canal     | `waterway=canal`     | polygon  | 10+  |
+|           | `kind`    | OSM tag                                               | Geometry | Zoom |
+| --------- | :-------- | :---------------------------------------------------- | :------- | :--- |
+| glacier   | glacier   | `natural=glacier`                                     | polygon  | 4+   |
+| water     | water     | `natural=water` + `water!=river`                      | polygon  | 4+   |
+| river     | river     | `waterway=riverbank`, `natural=water` + `water=river` | polygon  | 4+   |
+| reservoir | reservoir | `landuse=reservoir`                                   | polygon  | 4+   |
+| reservoir | basin     | `landuse=basin`                                       | polygon  | 4+   |
+| dock      | dock      | `waterway=dock`                                       | polygon  | 10+  |
+| canal     | canal     | `waterway=canal`                                      | polygon  | 10+  |
 
 ### Layer "water\_polygons\_labels"
 
