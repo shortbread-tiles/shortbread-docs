@@ -43,7 +43,7 @@ This layer contains inland water bodies and glaciers.
 | --------- | :-------- | :------------------- | :------- | :--- |
 | glacier   | glacier   | `natural=glacier`    | polygon  | 4+   |
 | water     | water     | `natural=water`      | polygon  | 4+   |
-| river     | riverbank | `waterway=riverbank` | polygon  | 4+   |
+| river     | river     | `waterway=riverbank` | polygon  | 4+   |
 | reservoir | reservoir | `landuse=reservoir`  | polygon  | 4+   |
 | reservoir | basin     | `landuse=basin`      | polygon  | 4+   |
 | dock      | dock      | `waterway=dock`      | polygon  | 10+  |
