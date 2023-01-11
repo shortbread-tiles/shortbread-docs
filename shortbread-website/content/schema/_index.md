@@ -33,9 +33,10 @@ This layer contains inland water bodies and glaciers.
 
 #### Properties
 
-| Field Name | Type   | Description        |
-| ---------- | :----- | :----------------- |
-| `kind`     | string | type of water body |
+| Field Name | Type    | Description                                |
+| ---------- | :------ | :----------------------------------------- |
+| `kind`     | string  | type of water body                         |
+| `way_area` | numeric | area in square meter (Mercator Projection) |
 
 #### Features
 
@@ -53,14 +54,18 @@ This layer contains inland water bodies and glaciers.
 
 Holds point (centroid) geometries and names for all named water polygons available in the *water\_polygons* layer.
 
+The `way_area` attributes allows you to prefer labels of larger areas.  Features are sorted by `way_area` in
+descending order.
+
 #### Properties
 
-| Field name | Type   | Description                                                            |
-| ---------- | :----- | :--------------------------------------------------------------------- |
-| `kind`     | string | type of water body (see *water\_polygons* layer for a list of values)  |
-| `name`     | string | value of OSM `name=*` tag                                              |
-| `name_en`  | string | value of OSM `name:en=*` tag                                           |
-| `name_de`  | string | value of OSM `name:de=*` tag                                           |
+| Field name | Type    | Description                                                            |
+| ---------- | :------ | :--------------------------------------------------------------------- |
+| `kind`     | string  | type of water body (see *water\_polygons* layer for a list of values)  |
+| `way_area` | numeric | area in square meter (Mercator Projection)                             |
+| `name`     | string  | value of OSM `name=*` tag                                              |
+| `name_en`  | string  | value of OSM `name:en=*` tag                                           |
+| `name_de`  | string  | value of OSM `name:de=*` tag                                           |
 
 ### Layer "water\_lines"
 
