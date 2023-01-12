@@ -248,6 +248,7 @@ This layer contains basic land cover that is usually drawn first.
 | greenfield              | `landuse=greenfield`               | polygon  | 10+  |
 | farmyard                | `landuse=farmyard`                 | polygon  | 10+  |
 | farmland                | `landuse=farmland`                 | polygon  | 10+  |
+| pier                    | `man_made=pier`                    | polygon  | 11+  |
 
 ### Layer "sites"
 
