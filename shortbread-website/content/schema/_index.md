@@ -354,6 +354,8 @@ The following features are available in this layer:
 | tertiary roads                      | `tertiary`       | 10+   |                                                                                      |
 | side roads                          | `unclassified`   | 12+   |                                                                                      |
 | residential roads                   | `residential`    | 12+   |                                                                                      |
+| roads exclusively for buses         | `busway`         | 12+   |                                                                                      |
+| bus guideways                       | `bus_guideway`   | 12+   |                                                                                      |
 | residential roads w/traffic calming | `living_street`  | 13+   |                                                                                      |
 | service roads                       | `service`        | 13+   |                                                                                      |
 | pedestrian roads                    | `pedestrian`     | 13+   |                                                                                      |
@@ -418,6 +420,8 @@ This layer holds street geometries for labelling. It contains their names and re
 | side roads                          | `unclassified`   | 14+   |
 | residential roads                   | `residential`    | 14+   |
 | residential roads w/traffic calming | `living_street`  | 14+   |
+| roads exclusively for buses         | `busway`         | 14+   |
+| bus guideways                       | `bus_guideway`   | 14+   |
 | service roads                       | `service`        | 14+   |
 | pedestrian roads                    | `pedestrian`     | 14+   |
 | tracks                              | `track`          | 14+   |
@@ -524,10 +528,12 @@ Holds public transport stops as points. Areas in OSM are represented by their ce
 
 #### Features
 
-| Feature Class      | value of `kind`      | OSM Tag              | Zoom |
-| ------------------ | :------------------- | :------------------- | :--- |
-| airport, aerodrome | `aerodrome`          | `aeroway=aerodrome`  | 11+  |
-| station            | `station`            | `railway=station`    | 13+  |
-| halt               | `halt`               | `railway=halt`       | 13+  |
-| tram_stop          | `tram_stop`          | `railway=tram_stop`  | 14+  |
-| aerialway station  | `aerialway_station`  | `aerialway=station`  | 13+  |
+| Feature Class      | value of `kind`      | OSM Tag               | Zoom |
+| ------------------ | :------------------- | :-------------------- | :--- |
+| airport, aerodrome | `aerodrome`          | `aeroway=aerodrome`   | 11+  |
+| station            | `station`            | `railway=station`     | 13+  |
+| halt               | `halt`               | `railway=halt`        | 13+  |
+| tram_stop          | `tram_stop`          | `railway=tram_stop`   | 14+  |
+| bus_station        | `bus_station`        | `amenity=bus_station` | 13+  |
+| bus_stop           | `bus_stop`           | `highway=bus_stop`    | 14+  |
+| aerialway station  | `aerialway_station`  | `aerialway=station`   | 13+  |
