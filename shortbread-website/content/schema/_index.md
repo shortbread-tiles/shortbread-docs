@@ -513,6 +513,29 @@ Holds aerialways as lines.
 | rope-tow lift   | `rope-tow`      | `aerialways=rope_tow`   | 12+  |
 
 
+### Layer "ferries"
+
+Holds line geometries of ferries.
+
+#### Properties
+
+| Field Name   | Type    | OSM Key                      |
+| ------------ | :------ | :--------------------------- |
+| `kind`       | string  |                              |
+| `name`       | string  | value of OSM `name=*` tag    |
+| `name_en`    | string  | value of OSM `name:en=*` tag |
+| `name_de`    | string  | value of OSM `name:de=*` tag |
+
+#### Features
+
+The following features are available in this layer:
+
+| Feature Class         | value of `kind` | OSM Tag                              | Zoom |
+| --------------------- | :-------------- | :----------------------------------- | :--- |
+| motor vehicle ferries | `ferry`         | `route=ferry` + `motor_vehicle!=no`  | 10+  |
+| all ferries           | `ferry`         | `route=ferry`                        | 12+  |
+
+
 ### Layer "public\_transport"
 
 Holds public transport stops as points. Areas in OSM are represented by their centroid.
