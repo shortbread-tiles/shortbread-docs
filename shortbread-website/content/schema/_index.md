@@ -110,6 +110,44 @@ Hold line geometries and names for named water lines.
 | `name_en`  | string | value of OSM `name:en=*` tag                                         |
 | `name_de`  | string | value of OSM `name:de=*` tag                                         |
 
+### Layer "pier\_lines"
+
+This layer contains piers, breakwaters and groynes mapped as lines. See the *pier\_polygons* layer for those mapped as polygons.
+
+#### Properties
+
+| Field Name  | Type    | Description                              |
+| ----------- | :------ | :--------------------------------------- |
+| kind        | string  | see Features section for possible values |
+
+
+#### Features
+| `kind`                  | OSM Tags                           | Geometry | Zoom |
+| ----------------------- | :--------------------------------- | :------- | :--- |
+| pier                    | `man_made=pier`                    | line     | 12+  |
+| breakwater              | `man_made=breakwater`              | line     | 12+  |
+| groyne                  | `man_made=groyne`                  | line     | 12+  |
+
+
+### Layer "pier\_polygons"
+
+This layer contains piers, breakwaters and groynes mapped as polygons. See the *pier\_lines* layer for those mapped as lines.
+
+#### Properties
+
+| Field Name  | Type    | Description                              |
+| ----------- | :------ | :--------------------------------------- |
+| kind        | string  | see Features section for possible values |
+
+
+#### Features
+| `kind`                  | OSM Tags                           | Geometry | Zoom |
+| ----------------------- | :--------------------------------- | :------- | :--- |
+| pier                    | `man_made=pier`                    | line     | 12+  |
+| breakwater              | `man_made=breakwater`              | line     | 12+  |
+| groyne                  | `man_made=groyne`                  | line     | 12+  |
+
+
 ## Countries, States, Cities
 
 ### Layer "boundaries"
@@ -248,7 +286,6 @@ This layer contains basic land cover that is usually drawn first.
 | greenfield              | `landuse=greenfield`               | polygon  | 10+  |
 | farmyard                | `landuse=farmyard`                 | polygon  | 10+  |
 | farmland                | `landuse=farmland`                 | polygon  | 10+  |
-| pier                    | `man_made=pier`                    | polygon  | 11+  |
 
 ### Layer "sites"
 
