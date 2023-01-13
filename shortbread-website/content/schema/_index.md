@@ -223,6 +223,7 @@ Holds label points for populated places. Features are sorted by `population` in 
 | village           | `village`            | `place=village` (except capitals)                | point    | 10+  | 100                |
 | hamlet            | `hamlet`             | `place=hamlet` (except capitals)                 | point    | 10+  | 50                 |
 | suburb            | `suburb`             | `place=suburb`                                   | point    | 10+  | 1,000              |
+| quarter           | `quarter`            | `place=quarter`                                  | point    | 10+  | 500                |
 | neighbourhood     | `neighbourhood`      | `place=neighbourhood`                            | point    | 10+  | 100                |
 | isolated dewlling | `isolated_dwelling`  | `place=isolated_dwelling`                        | point    | 10+  | 5                  |
 | farm              | `farm`               | `place=farm`                                     | point    | 10+  | 5                  |
