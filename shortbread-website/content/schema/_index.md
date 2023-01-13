@@ -278,6 +278,7 @@ This layer contains basic land cover that is usually drawn first.
 | residential             | `landuse=residential`              | polygon  | 10+  |
 | industrial              | `landuse=industrial`               | polygon  | 10+  |
 | commercial              | `landuse=commercial`               | polygon  | 10+  |
+| garages                 | `landuse=garages`                  | polygon  | 10+  |
 | retail                  | `landuse=retail`                   | polygon  | 10+  |
 | railway                 | `landuse=railway`                  | polygon  | 10+  |
 | landfill                | `landuse=landfill`                 | polygon  | 10+  |
@@ -297,6 +298,8 @@ land layer, but below buildings.
 | military danger area | `danger_area`     | `military=danger_area`    | name  | polygon  | 14+  |
 | sports center        | `sports_center`   | `leisure=sports_center`   | name  | polygon  | 14+  |
 | university campus    | `university`      | `amenity=university`      | name  | polygon  | 14+  |
+| college campus       | `college`         | `amenity=college`         | name  | polygon  | 14+  |
+| school campus        | `school`          | `amenity=school`          | name  | polygon  | 14+  |
 | hospital campus      | `hospital`        | `amenity=hospital`        | name  | polygon  | 14+  |
 | prison area          | `prison`          | `amenity=prison`          | name  | polygon  | 14+  |
 | car park             | `parking`         | `amenity=parking`         | name  | polygon  | 14+  |
