@@ -331,18 +331,20 @@ from road class, OSM `layer=*`, `bridge=*` and `tunnel=*` tags. More important r
 
 #### Properties
 
-| Field Name | Type     | Zoom | Default             | Description                                                                      |
-| ---------- | :------- | :--- | :------------------ | :------------------------------------------------------------------------------- |
-| kind       | string   | 5+   | always set          | Feature class, contains value of `highway=*` or `railway=*`                      |
-| link       | boolean  | 11+  | false               | true for link roads (`highway=(motorway|trunk|primary|secondary|tertiary)_link`) |
-| rail       | boolean  | 5+   | false               | true for railways, false otherwise                                               |
-| tunnel     | boolean  | 11+  | false               | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise       |
-| bridge     | boolean  | 11+  | false               | true for `bridge=yes`, `false` otherwise                                         |
-| tracktype  | string   | 11+  | field not available | value of `tracktype=*`                                                           |
-| surface    | string   | 11+  | empty string        | value of `surface=*`                                                             |
-| service    | string   | 11+  | field not available | value of `service=*`                                                             |
-| bicycle    | string   | 14+  | empty string        | value of `bicycle=*`                                                             |
-| horse      | string   | 14+  | empty string        | value of `horse=*`                                                               |
+| Field Name     | Type     | Zoom | Default             | Description                                                                             |
+| -------------- | :------- | :--- | :------------------ | :-------------------------------------------------------------------------------------- |
+| kind           | string   | 5+   | always set          | Feature class, contains value of `highway=*` or `railway=*`                             |
+| link           | boolean  | 11+  | false               | true for link roads (`highway=(motorway|trunk|primary|secondary|tertiary)_link`)        |
+| rail           | boolean  | 5+   | false               | true for railways, false otherwise                                                      |
+| tunnel         | boolean  | 11+  | false               | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise              |
+| bridge         | boolean  | 11+  | false               | true for `bridge=yes`, `false` otherwise                                                |
+| oneway         | boolean  | 14+  | false               | true for `oneway=yes/1/true/-1`; always false for rail features                         |
+| oneway_reverse | boolean  | 14+  | false               | true for reverse (not reversible) oneways (`oneway=-1`); always false for rail features |
+| tracktype      | string   | 11+  | field not available | value of `tracktype=*`                                                                  |
+| surface        | string   | 11+  | empty string        | value of `surface=*`                                                                    |
+| service        | string   | 11+  | field not available | value of `service=*`                                                                    |
+| bicycle        | string   | 14+  | empty string        | value of `bicycle=*`                                                                    |
+| horse          | string   | 14+  | empty string        | value of `horse=*`                                                                      |
 
 #### Features
 
