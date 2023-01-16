@@ -110,6 +110,39 @@ Hold line geometries and names for named water lines.
 | `name_en`  | string | value of OSM `name:en=*` tag                                         |
 | `name_de`  | string | value of OSM `name:de=*` tag                                         |
 
+### Layer "dam\_lines"
+
+Holds line geometries of dams (not dykes).
+
+#### Properties
+
+| Field Name | Type    |
+| ---------- | :------ |
+| `kind`     | string  |
+
+#### Features
+
+|      | `kind` | OSM tag      | Geometry | Zoom |
+| ---- | :----- | :----------- | :------- | :--- |
+| dam  | dam    | waterway=dam | line     | 12+  |
+
+### Layer "dam\_lines"
+
+Holds polygon geometries of dams (not dykes).
+
+#### Properties
+
+| Field Name | Type    |
+| ---------- | :------ |
+| `kind`     | string  |
+
+#### Features
+
+|      | `kind` | OSM tag      | Geometry | Zoom |
+| ---- | :----- | :----------- | :------- | :--- |
+| dam  | dam    | waterway=dam | line     | 12+  |
+
+
 ### Layer "pier\_lines"
 
 This layer contains piers, breakwaters and groynes mapped as lines. See the *pier\_polygons* layer for those mapped as polygons.
