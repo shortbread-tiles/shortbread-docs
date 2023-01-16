@@ -425,6 +425,7 @@ The following features are available in this layer:
 | -------------- | :--------------- | :---- |
 | pedestrian     | `pedestrian`     | 14+   |
 | service roads  | `service`        | 14+   |
+| runway         | `runway`         | 11+   |
 
 
 ### Layer "street\_labels"
@@ -582,6 +583,7 @@ Holds public transport stops as points. Areas in OSM are represented by their ce
 | Feature Class      | value of `kind`      | OSM Tag                    | Zoom |
 | ------------------ | :------------------- | :------------------------- | :--- |
 | airport, aerodrome | `aerodrome`          | `aeroway=aerodrome`        | 11+  |
+| helipad            | `helipad`            | `aeroway=helipad`          | 13+  |
 | station            | `station`            | `railway=station`          | 13+  |
 | halt               | `halt`               | `railway=halt`             | 13+  |
 | tram_stop          | `tram_stop`          | `railway=tram_stop`        | 14+  |
