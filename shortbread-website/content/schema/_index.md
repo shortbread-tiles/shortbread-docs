@@ -624,3 +624,198 @@ Holds public transport stops as points. Areas in OSM are represented by their ce
 | bus_stop           | `bus_stop`           | `highway=bus_stop`         | 14+  |
 | ferry terminal     | `ferry_terminal`     | `aerialway=ferry_terminal` | 12+  |
 | aerialway station  | `aerialway_station`  | `aerialway=station`        | 13+  |
+
+
+### Layer "pois"
+
+Holds points of interest as point geometries. Areas in OSM are represented by their centroid.
+
+All features are available on zoom level 14 only.
+
+#### Properties
+
+| Field Name    | Type   | Default | Description                                                                 |
+| ------------- | :----- | :------ | :-------------------------------------------------------------------------- |
+| `amenity`     | string | null    | value of OSM `amenity=*` tag if listed in the "Features" subsection below   |
+| `leisure`     | string | null    | value of OSM `leisure=*` tag if listed in the "Features" subsection below   |
+| `tourism`     | string | null    | value of OSM `tourism=*` tag if listed in the "Features" subsection below   |
+| `shop`        | string | null    | value of OSM `shop=*` tag if listed in the "Features" subsection below      |
+| `man_made`    | string | null    | value of OSM `man_made=*` tag if listed in the "Features" subsection below  |
+| `historic`    | string | null    | value of OSM `historic=*` tag if listed in the "Features" subsection below  |
+| `emergency`   | string | null    | value of OSM `emergency=*` tag if listed in the "Features" subsection below |
+| `highway`     | string | null    | value of OSM `highway=*` tag if listed in the "Features" subsection below   |
+| `office`      | string | null    | value of OSM `office=*` tag if listed in the "Features" subsection below    |
+| `name`        | string | null    | value of OSM `name=*` tag                                                   |
+| `name_en`     | string | null    | value of OSM `name:en=*` tag                                                |
+| `name_de`     | string | null    | value of OSM `name:de=*` tag                                                |
+
+The following attributes are set for selected features only. Their value comes from the equally named OSM keys.
+
+| Field Name               | Type    | Default | Selection criteria (OSM tags)               |
+| ------------------------ | :------ | :------ | :------------------------------------------ |
+| `cuisine`                | string  | null    | `amenity=restaurant/fast_food/pub/bar/cafe` |
+| `sport`                  | string  | null    | `leisure=pitch/sports_centre`               |
+| `vending`                | string  | null    | `amenity=vending_machine`                   |
+| `information`            | string  | null    | `tourism=information`                       |
+| `tower:type`             | string  | null    | `man_made=tower`                            |
+| `religion`               | string  | null    | `amenity=place_of_worship`                  |
+| `denomination`           | string  | null    | `amenity=place_of_worship`                  |
+
+The following attributes are set for selected features only. They are true if the specified OSM key has the value `yes`.
+
+| Field Name               | Type    | Default | Selection criteria (OSM tags)  |
+| ------------------------ | :------ | :------ | :----------------------------- |
+| `recycling:glass_bottles`| boolean | false   | `amenity=recycling`            |
+| `recycling:paper`        | boolean | false   | `amenity=recycling`            |
+| `recycling:clothes`      | boolean | false   | `amenity=recycling`            |
+| `recycling:scrap_metal`  | boolean | false   | `amenity=recycling`            |
+| `atm`                    | boolean | false   | `amenity=bank`                 |
+
+#### Features
+
+The following key-value combinations are included in this layer:
+
+| Key               | Value                    |
+| ----------------- | :----------------------- |
+| `amenity`         | `police`                 |
+| `amenity`         | `fire_station`           |
+| `amenity`         | `post_box`               |
+| `amenity`         | `post_office`            |
+| `amenity`         | `telephone`,             |
+| `amenity`         | `library`                |
+| `amenity`         | `townhall`               |
+| `amenity`         | `courthouse`             |
+| `amenity`         | `prison`                 |
+| `amenity`         | `embassy`                |
+| `amenity`         | `community_centre`       |
+| `amenity`         | `nursing_home`,          |
+| `amenity`         | `arts_centre`            |
+| `amenity`         | `grave_yard`             |
+| `amenity`         | `marketplace`            |
+| `amenity`         | `recycling`              |
+| `amenity`         | `university`             |
+| `amenity`         | `school`                 |
+| `amenity`         | `college`                |
+| `amenity`         | `public_building`,       |
+| `amenity`         | `pharmacy`               |
+| `amenity`         | `hospital`               |
+| `amenity`         | `clinic`                 |
+| `amenity`         | `doctors`                |
+| `amenity`         | `denitst`                |
+| `amenity`         | `veterinary`             |
+| `amenity`         | `theatre`                |
+| `amenity`         | `nightclub`              |
+| `amenity`         | `cinema`,                |
+| `amenity`         | `restaurant`             |
+| `amenity`         | `fast_food`              |
+| `amenity`         | `cafe`                   |
+| `amenity`         | `pub`                    |
+| `amenity`         | `bar`                    |
+| `amenity`         | `foot_court`             |
+| `amenity`         | `biergarten`             |
+| `amenity`         | `shelter`,               |
+| `amenity`         | `car_rental`             |
+| `amenity`         | `car_wash`               |
+| `amenity`         | `car_sharing`            |
+| `amenity`         | `bicycle_rental`         |
+| `amenity`         | `vending_machine`        |
+| `amenity`         | `bank`                   |
+| `amenity`         | `atm`,                   |
+| `amenity`         | `toilets`                |
+| `amenity`         | `bench`                  |
+| `amenity`         | `drinking_water`         |
+| `amenity`         | `fountain`               |
+| `amenity`         | `hunting_stand`          |
+| `amenity`         | `waste_basket`           |
+| `amenity`         | `place_of_worship`       |
+| `amenity`         | `restaurant`             |
+| `amenity`         | `fast_food`              |
+| `amenity`         | `pub`                    |
+| `amenity`         | `bar`                    |
+| `amenity`         | `cafe`                   |
+| `amenity`         | `playground`             |
+| `amenity`         | `dog_park`               |
+| `leisure`         | `sports_centre`          |
+| `leisure`         | `pitch`                  |
+| `leisure`         | `swimming_pool`          |
+| `leisure`         | `water_park`,            |
+| `leisure`         | `golf_course`            |
+| `leisure`         | `stadium`                |
+| `leisure`         | `ice_rink`               |
+| `leisure`         | `pitch`                  |
+| `leisure`         | `sports_centre`          |
+| `tourism`         | `hotel`                  |
+| `tourism`         | `motel`                  |
+| `tourism`         | `bed_and_breakfast`      |
+| `tourism`         | `guest_house`            |
+| `tourism`         | `hostel`                 |
+| `tourism`         | `chalet`,                |
+| `tourism`         | `camp_site`              |
+| `tourism`         | `alpine_hut`             |
+| `tourism`         | `caravan_site`           |
+| `tourism`         | `information`            |
+| `tourism`         | `picnic_site`            |
+| `tourism`         | `viewpoint`              |
+| `tourism`         | `zoo`                    |
+| `tourism`         | `theme_park`             |
+| `shop`            | `supermarket`            |
+| `shop`            | `bakery`                 |
+| `shop`            | `kiosk`                  |
+| `shop`            | `mall`                   |
+| `shop`            | `department_store`       |
+| `shop`            | `general`,               |
+| `shop`            | `convinience`            |
+| `shop`            | `clothes`                |
+| `shop`            | `florist`                |
+| `shop`            | `chemist`                |
+| `shop`            | `books`                  |
+| `shop`            | `butcher`                |
+| `shop`            | `shoes`                  |
+| `shop`            | `alcohol`,               |
+| `shop`            | `beverages`              |
+| `shop`            | `optican`                |
+| `shop`            | `jewelry`                |
+| `shop`            | `gift`                   |
+| `shop`            | `sports`                 |
+| `shop`            | `stationery`             |
+| `shop`            | `outdoor`                |
+| `shop`            | `mobile_phone`,          |
+| `shop`            | `toys`                   |
+| `shop`            | `newsagent`              |
+| `shop`            | `greengrocer`            |
+| `shop`            | `beauty`                 |
+| `shop`            | `video`                  |
+| `shop`            | `car`                    |
+| `shop`            | `bicycle`                |
+| `shop`            | `doityourself`,          |
+| `shop`            | `hardware`               |
+| `shop`            | `furniture`              |
+| `shop`            | `computer`               |
+| `shop`            | `garden_centre`          |
+| `shop`            | `hairdresser`            |
+| `shop`            | `travel_agency`          |
+| `shop`            | `laundry`,               |
+| `shop`            | `dry_cleaning`           |
+| `man_made`        | `surveillance`           |
+| `man_made`        | `tower`                  |
+| `man_made`        | `windmill`               |
+| `man_made`        | `lighthouse`             |
+| `man_made`        | `wastewater_plant`       |
+| `man_made`        | `water_well`             |
+| `man_made`        | `watermill`              |
+| `man_made`        | `water_works`            |
+| `historic`        | `monument`               |
+| `historic`        | `memorial`               |
+| `historic`        | `artwork`                |
+| `historic`        | `castle`                 |
+| `historic`        | `ruins`                  |
+| `historic`        | `archaelogical_site`,    |
+| `historic`        | `wayside_cross`          |
+| `historic`        | `wayside_shrine`         |
+| `historic`        | `battlefield`            |
+| `historic`        | `fort`                   |
+| `emergency`       | `phone`                  |
+| `emergency`       | `fire_hydrant`           |
+| `highway`         | `emergency_access_point` |
+| `office`          | `diplomatic`             |
+
