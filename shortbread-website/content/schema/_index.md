@@ -557,12 +557,13 @@ Holds public transport stops as points. Areas in OSM are represented by their ce
 
 #### Features
 
-| Feature Class      | value of `kind`      | OSM Tag               | Zoom |
-| ------------------ | :------------------- | :-------------------- | :--- |
-| airport, aerodrome | `aerodrome`          | `aeroway=aerodrome`   | 11+  |
-| station            | `station`            | `railway=station`     | 13+  |
-| halt               | `halt`               | `railway=halt`        | 13+  |
-| tram_stop          | `tram_stop`          | `railway=tram_stop`   | 14+  |
-| bus_station        | `bus_station`        | `amenity=bus_station` | 13+  |
-| bus_stop           | `bus_stop`           | `highway=bus_stop`    | 14+  |
-| aerialway station  | `aerialway_station`  | `aerialway=station`   | 13+  |
+| Feature Class      | value of `kind`      | OSM Tag                    | Zoom |
+| ------------------ | :------------------- | :------------------------- | :--- |
+| airport, aerodrome | `aerodrome`          | `aeroway=aerodrome`        | 11+  |
+| station            | `station`            | `railway=station`          | 13+  |
+| halt               | `halt`               | `railway=halt`             | 13+  |
+| tram_stop          | `tram_stop`          | `railway=tram_stop`        | 14+  |
+| bus_station        | `bus_station`        | `amenity=bus_station`      | 13+  |
+| bus_stop           | `bus_stop`           | `highway=bus_stop`         | 14+  |
+| ferry terminal     | `ferry_terminal`     | `aerialway=ferry_terminal` | 12+  |
+| aerialway station  | `aerialway_station`  | `aerialway=station`        | 13+  |
