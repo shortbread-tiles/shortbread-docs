@@ -371,12 +371,14 @@ zoom 14 on.
 
 Has points for everything with an address from zoom 14+. Polygons are represented by their centroid.
 
+If a feature is available in the *pois* layer, it will not be duplicated in the *addresses* layer.
+
 #### Properties
 
-| Field Name | Type    | OSM Key              |
-| ---------- | :------ | :------------------- |
-| `name`     | string  | `addr:housename=*`   |
-| `number`   | string  | `addr:housenumber=*` |
+| Field Name    | Type    | OSM Key              |
+| ------------- | :------ | :------------------- |
+| `housename`   | string  | `addr:housename=*`   |
+| `housenumber` | string  | `addr:housenumber=*` |
 
 ## Streets and Transport
 
@@ -648,6 +650,8 @@ All features are available on zoom level 14 only.
 | `name`        | string | null    | value of OSM `name=*` tag                                                   |
 | `name_en`     | string | null    | value of OSM `name:en=*` tag                                                |
 | `name_de`     | string | null    | value of OSM `name:de=*` tag                                                |
+| `housename`   | string | null    | `addr:housename=*`                                                          |
+| `housenumber` | string | null    | `addr:housenumber=*`                                                        |
 
 The following attributes are set for selected features only. Their value comes from the equally named OSM keys.
 
