@@ -126,7 +126,7 @@ Holds line geometries of dams (not dykes).
 | ---- | :----- | :----------- | :------- | :--- |
 | dam  | dam    | waterway=dam | line     | 12+  |
 
-### Layer "dam\_lines"
+### Layer "dam\_polygons"
 
 Holds polygon geometries of dams (not dykes).
 
@@ -140,7 +140,7 @@ Holds polygon geometries of dams (not dykes).
 
 |      | `kind` | OSM tag      | Geometry | Zoom |
 | ---- | :----- | :----------- | :------- | :--- |
-| dam  | dam    | waterway=dam | line     | 12+  |
+| dam  | dam    | waterway=dam | polygon  | 12+  |
 
 
 ### Layer "pier\_lines"
