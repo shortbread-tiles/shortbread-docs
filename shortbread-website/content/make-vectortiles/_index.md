@@ -32,7 +32,7 @@ install a branch by Geofabrik:
 Clone Tilemaker:
 
 ```sh
-git clone --branch z-order-float https://github.com/geofabrik/tilemaker.git
+git clone --branch v2.2.0-geofabrik https://github.com/geofabrik/tilemaker.git
 cd tilemaker
 mkdir build
 cd build
