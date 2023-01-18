@@ -181,28 +181,6 @@ This layer contains piers, breakwaters and groynes mapped as polygons. See the *
 | groyne                  | `man_made=groyne`                  | line     | 12+  |
 
 
-### Layer "bridges"
-
-This layer contains bridges mapped as polygons. There is no distinction which type of road, railway, runway or
-waterway uses this bridge.
-
-Please mind that only some bridges are mapped as polygons but almost all roads located on a bridge have their
-location on a bridge as an attribute (see *streets* layer for details).
-
-#### Properties
-
-| Field Name  | Type    | Description                              |
-| ----------- | :------ | :--------------------------------------- |
-| kind        | string  | see Features section for possible values |
-
-
-#### Features
-
-| `kind` | OSM Tags          | Geometry | Zoom |
-| ------ | :---------------- | :------- | :--- |
-| bridge | `man_made=bridge` | polygon  | 12+  |
-
-
 ## Countries, States, Cities
 
 ### Layer "boundaries"
@@ -551,6 +529,29 @@ The following features are available in this layer:
 | -------------------- | :------------------ | :--- |
 | motorway exit points | `motorway_junction` | 12+  |
 
+
+### Layer "bridges"
+
+This layer contains bridges mapped as polygons. There is no distinction which type of road, railway, runway or
+waterway uses this bridge.
+
+Please mind that only some bridges are mapped as polygons but almost all roads located on a bridge have their
+location on a bridge as an attribute (see *streets* layer for details).
+
+#### Properties
+
+| Field Name  | Type    | Description                              |
+| ----------- | :------ | :--------------------------------------- |
+| kind        | string  | see Features section for possible values |
+
+
+#### Features
+
+| `kind` | OSM Tags          | Geometry | Zoom |
+| ------ | :---------------- | :------- | :--- |
+| bridge | `man_made=bridge` | polygon  | 12+  |
+
+
 ### Layer "aerialways"
 
 Holds aerialways as lines.
@@ -599,6 +600,8 @@ The following features are available in this layer:
 | motor vehicle ferries | `ferry`         | `route=ferry` + `motor_vehicle!=no`  | 10+  |
 | all ferries           | `ferry`         | `route=ferry`                        | 12+  |
 
+
+## Points of interest
 
 ### Layer "public\_transport"
 
