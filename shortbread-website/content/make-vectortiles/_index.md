@@ -34,9 +34,6 @@ Clone Tilemaker:
 ```sh
 git clone --branch v2.2.0-geofabrik https://github.com/geofabrik/tilemaker.git
 cd tilemaker
-mkdir build
-cd build
-cmake ..
 make
 ```
 
