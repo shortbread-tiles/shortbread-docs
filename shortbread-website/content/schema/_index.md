@@ -290,7 +290,7 @@ This layer contains basic land cover that is usually drawn first.
 | village_green           | `landuse=village_green`            | polygon  | 11+  |
 | recreation_ground       | `landuse=recreation_ground`        | polygon  | 11+  |
 | greenhouse_horticulture | `landuse=greenhouse_horticulture`  | polygon  | 11+  |
-| planet_nursery          | `landuse=plant_nursery`            | polygon  | 11+  |
+| plant_nursery           | `landuse=plant_nursery`            | polygon  | 11+  |
 | sand                    | `natural=sand`                     | polygon  | 10+  |
 | scrub                   | `natural=beach`                    | polygon  | 10+  |
 | heath                   | `natural=heath`                    | polygon  | 11+  |
