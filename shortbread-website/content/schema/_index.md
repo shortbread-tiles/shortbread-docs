@@ -369,7 +369,7 @@ from road class, OSM `layer=*`, `bridge=*` and `tunnel=*` tags. More important r
 
 | Field Name     | Type     | Zoom | Default             | Description                                                                             |
 | -------------- | :------- | :--- | :------------------ | :-------------------------------------------------------------------------------------- |
-| kind           | string   | 5+   | always set          | Feature class, contains value of `highway=*` or `railway=*`                             |
+| kind           | string   | 5+   | always set          | Feature class, contains value of `highway=*`, `aeroway=*` or `railway=*`                |
 | link           | boolean  | 11+  | false               | true for link roads (`highway=(motorway|trunk|primary|secondary|tertiary)_link`)        |
 | rail           | boolean  | 5+   | false               | true for railways, false otherwise                                                      |
 | tunnel         | boolean  | 11+  | false               | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise              |
@@ -415,7 +415,7 @@ The following features are available in this layer:
 | subway                              | `subway`         | 10+   |                                                                                      |
 | monorail                            | `monorail`       | 10+   |                                                                                      |
 
-### Layer "street_polygons"
+### Layer "street\_polygons"
 
 Holds polygons geometries of certain streets mapped as polygons. Features are ordered by the so-called z-order value which is computed
 from road class, OSM `layer=*`, `bridge=*` and `tunnel=*` tags. More important roads are are sorted before less important roads, tunnels before bridges.
@@ -424,7 +424,7 @@ from road class, OSM `layer=*`, `bridge=*` and `tunnel=*` tags. More important r
 
 | Field Name | Type     | Default             | Description                                                                      |
 | ---------- | :------- | :------------------ | :------------------------------------------------------------------------------- |
-| kind       | string   | always set          | Feature class, contains value of `highway=*`                      |
+| kind       | string   | always set          | Feature class, contains value of `highway=*` or `aeroway=*`                      |
 | rail       | boolean  | false               | true for railways, false otherwise                                               |
 | tunnel     | boolean  | false               | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise       |
 | bridge     | boolean  | false               | true for `bridge=yes`, `false` otherwise                                         |
@@ -439,6 +439,7 @@ The following features are available in this layer:
 | pedestrian     | `pedestrian`     | 14+   |
 | service roads  | `service`        | 14+   |
 | runway         | `runway`         | 11+   |
+| taxiway        | `taxiway`        | 13+   |
 
 
 ### Layer "street\_labels"
@@ -471,12 +472,21 @@ This layer holds street geometries for labelling. It contains their names and re
 | steps                               | `steps`          | 14+   |
 | unspecified paths                   | `path`           | 14+   |
 | bicycle paths                       | `cycleway`       | 14+   |
+| runway                              | `runway`         | 11+   |
+| taxiway                             | `taxiway`        | 13+   |
+| railway                             | `rail`           | 10+   |
+| narrow gauge railway                | `narrow_gauge`   | 10+   |
+| tram                                | `tram`           | 10+   |
+| light railway                       | `light_rail`     | 10+   |
+| funicular                           | `funicular`      | 10+   |
+| subway                              | `subway`         | 10+   |
+| monorail                            | `monorail`       | 10+   |
 
 #### Properties
 
 | Field Name   | Type     | OSM Key                                                                                  |
 | ------------ | :------- | :--------------------------------------------------------------------------------------- |
-| `kind`       | string   | value of OSM `highway=*` tag                                                             |
+| `kind`       | string   | value of OSM `highway=*`, `aeroway=*` or `taxiway=*` tag                                 |
 | `ref`        | string   | value of OSM `ref=*` tag, semicolons replaced by newline characters (ASCII character 10) |
 | `ref_rows`   | numeric  | number of lines of the `ref` value                                                       |
 | `ref_cols`   | numeric  | maximum line length of the `ref` value                                                   |
@@ -490,12 +500,12 @@ Holds labelling points of the polygons of the "streets_polygons" layer.
 
 #### Properties
 
-| Field Name   | Type     | OSM Key                       |
-| ------------ | :------- | :---------------------------- |
-| `kind`       | string   | value of OSM `highway=*` tag  |
-| `name`       | string   | value of OSM `name=*` tag     |
-| `name_en`    | string   | value of OSM `name:en=*` tag  |
-| `name_de`    | string   | value of OSM `name:de=*` tag  |
+| Field Name   | Type     | OSM Key                                     |
+| ------------ | :------- | :------------------------------------------ |
+| `kind`       | string   | value of OSM `highway=*` or `aeroway=*` tag |
+| `name`       | string   | value of OSM `name=*` tag                   |
+| `name_en`    | string   | value of OSM `name:en=*` tag                |
+| `name_de`    | string   | value of OSM `name:de=*` tag                |
 
 #### Features
 
@@ -505,6 +515,8 @@ The following features are available in this layer:
 | -------------- | :--------------- | :---- |
 | pedestrian     | `pedestrian`     | 14+   |
 | service roads  | `service`        | 14+   |
+| runway         | `runway`         | 14+   |
+| taxiway        | `taxiway`        | 14+   |
 
 
 ### Layer "streets\_labels\_points"
