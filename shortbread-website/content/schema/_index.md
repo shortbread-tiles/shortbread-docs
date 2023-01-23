@@ -190,10 +190,10 @@ Holds boundary lines of countries and states.
 
 #### Properties
 
-| Field name    | Type    | Description                                                   |
-| ------------- | :------ | :------------------------------------------------------------ |
-| `admin_level` | numeric | highest administrative boundary this line belongs to          |
-| `maritime`    | boolean | Boundary line is located on sea, base on OSM `maritime=*` tag |
+| Field name    | Type    | Description                                                                                                              |
+| ------------- | :------ | :----------------------------------------------------------------------------------------------------------------------- |
+| `admin_level` | numeric | highest administrative boundary this line belongs to                                                                     |
+| `maritime`    | boolean | Boundary line is located on sea, base on OSM `maritime=*` tag, or is the coastline (way tagged with `natural=coastline`) |
 
 
 #### Features
