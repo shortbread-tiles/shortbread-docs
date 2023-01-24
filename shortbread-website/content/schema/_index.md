@@ -828,6 +828,7 @@ The following key-value combinations are included in this layer:
 | `historic`        | `fort`                   |
 | `emergency`       | `phone`                  |
 | `emergency`       | `fire_hydrant`           |
+| `emergency`       | `defibrillator`          |
 | `highway`         | `emergency_access_point` |
 | `office`          | `diplomatic`             |
 
