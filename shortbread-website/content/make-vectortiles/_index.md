@@ -59,7 +59,7 @@ in Web Mercator (EPSG:3857) only. Therefore, GDAL's *ogr2ogr* is used to transfo
 
 ```sh
 cd shortbread-tilemaker
-./get-shapefiles.py
+./get-shapefiles.sh
 ```
 
 
