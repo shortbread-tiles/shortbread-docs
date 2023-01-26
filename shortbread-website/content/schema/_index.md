@@ -424,7 +424,7 @@ from road class, OSM `layer=*`, `bridge=*` and `tunnel=*` tags. More important r
 
 | Field Name | Type     | Default             | Description                                                                      |
 | ---------- | :------- | :------------------ | :------------------------------------------------------------------------------- |
-| kind       | string   | always set          | Feature class, contains value of `highway=*` or `aeroway=*`                      |
+| kind       | string   | always set          | Feature class, contains value of `highway=*` or `area:aeroway=*`                 |
 | rail       | boolean  | false               | true for railways, false otherwise                                               |
 | tunnel     | boolean  | false               | true for `tunnel=yes/building_passage` or `covered=yes`, `false` otherwise       |
 | bridge     | boolean  | false               | true for `bridge=yes`, `false` otherwise                                         |
