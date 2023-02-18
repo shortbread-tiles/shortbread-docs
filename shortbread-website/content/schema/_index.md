@@ -261,7 +261,7 @@ Holds label points for populated places. Features are sorted by `population` in 
 | isolated dewlling | `isolated_dwelling`  | `place=isolated_dwelling`                        | point    | 10+  | 5                  |
 | farm              | `farm`               | `place=farm`                                     | point    | 10+  | 5                  |
 | island            | `island`             | `place=island`                                   | point    | 10+  | 0                  |
-| unpopolate place  | `locality`           | `place=locality`                                 | point    | 10+  | 0                  |
+| unpopulated place | `locality`           | `place=locality`                                 | point    | 10+  | 0                  |
 
 ## Land Use, Land Cover, Buildings
 
