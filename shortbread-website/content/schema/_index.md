@@ -730,7 +730,7 @@ The following key-value combinations are included in this layer:
 | `amenity`         | `cafe`                   |
 | `amenity`         | `pub`                    |
 | `amenity`         | `bar`                    |
-| `amenity`         | `foot_court`             |
+| `amenity`         | `food_court`             |
 | `amenity`         | `biergarten`             |
 | `amenity`         | `shelter`                |
 | `amenity`         | `car_rental`             |
