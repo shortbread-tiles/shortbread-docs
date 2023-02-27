@@ -292,7 +292,7 @@ This layer contains basic land cover that is usually drawn first.
 | greenhouse_horticulture | `landuse=greenhouse_horticulture`  | polygon  | 11+  |
 | plant_nursery           | `landuse=plant_nursery`            | polygon  | 11+  |
 | sand                    | `natural=sand`                     | polygon  | 10+  |
-| scrub                   | `natural=beach`                    | polygon  | 10+  |
+| beach                   | `natural=beach`                    | polygon  | 10+  |
 | heath                   | `natural=heath`                    | polygon  | 11+  |
 | scrub                   | `natural=scrub`                    | polygon  | 11+  |
 | grassland               | `natural=grassland`                | polygon  | 11+  |
