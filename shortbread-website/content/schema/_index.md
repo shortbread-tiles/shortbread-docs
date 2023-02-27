@@ -720,7 +720,7 @@ The following key-value combinations are included in this layer:
 | `amenity`         | `hospital`               |
 | `amenity`         | `clinic`                 |
 | `amenity`         | `doctors`                |
-| `amenity`         | `denitst`                |
+| `amenity`         | `dentist`                |
 | `amenity`         | `veterinary`             |
 | `amenity`         | `theatre`                |
 | `amenity`         | `nightclub`              |
