@@ -61,6 +61,16 @@ cd shortbread-tilemaker
 ./get-shapefiles.sh
 ```
 
+## Download OpenStreetMap Raw Data
+
+Tilemaker needs raw OpenStreetMap data in `.osm.pbf` format as input. You can download it from
+
+* regional extracts from [download.geofabrik.de](https://download.geofabrik.de)
+* regional extracts from [download.openstreetmap.fr](https://download.openstreetmap.fr/extracts/)
+* latest weekly planet PBF file from [planet.openstreetmap.org](https://planet.openstreetmap.org/) or any of its [mirrors](https://wiki.openstreetmap.org/wiki/Planet.osm#Planet.osm_mirrors)
+
+Please try with a small extract first before you try to load the complete world.
+
 
 ## Generate Vector Tileset
 
