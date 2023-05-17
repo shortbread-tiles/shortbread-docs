@@ -19,22 +19,21 @@ In order to build vector tiles, you have to provide the following dependencies:
 * Curl
 * Unzip
 * GDAL
-* Install Tilemaker (Geofabrik fork, `z-order-float` branch = [upstream pull request 393](https://github.com/systemed/tilemaker/pull/393))
+* Install Tilemaker
 
 Ubuntu/Debian: `apt install curl unzip gdal-bin`
 
 ## Tilemaker Installation
 
 The Shortbread vector tile schema requires a special feature of Tilemaker (sorting features in a
-layer by a float number). Therefore, upstream Tilemaker is not compatible. Instead, you have to
-install a branch by Geofabrik:
+layer by a float number). Therefore, Tilemaker has to be compiled with `FLOAT_Z_ORDER` set to any value.
 
-Clone Tilemaker:
+Clone and compile Tilemaker:
 
 ```sh
-git clone --branch v2.2.0-geofabrik https://github.com/geofabrik/tilemaker.git
+git clone --branch v2.4.0 https://github.com/systemd/tilemaker.git
 cd tilemaker
-make
+make CONFIG=-DFLOAT_Z_ORDER
 ```
 
 Installation of Tilemaker is described in the [Tilemaker Readme](https://github.com/geofabrik/tilemaker/#installing) as well.
@@ -85,3 +84,20 @@ tilemaker --bbox -180,-86,180,86 --input planet-latest.osm.pbf --store tilemaker
 In February 2022, a server with a AMD EPYC 7452 32-Core Processor (2.35–3.35 GHz), 512 GB RAM,
 cache on NVMe and output to a loop-mounted hard disk drive (RAID 1) took 16:15 hours and needed up
 to 358 GB RAM.
+
+## Troubleshooting
+
+### "`z_order` is limited to 1 byte signed integer"
+
+Error message:
+
+```
+lua runtime error: z_order is limited to 1 byte signed integer.
+terminate called after throwing an instance of 'kaguya::LuaTypeMismatch'
+  what():  type mismatch!!
+
+```
+
+Reason: Your version of Tilemake was compiled without the flag `FLOAT_Z_ORDER`.
+
+Solution: Recompile Tilemaker using `make clean && make CONFIG=-DFLOAT_Z_ORDER`.
