@@ -13,7 +13,7 @@ are on which zoom levels and which attributes to expect on features in that laye
 
 This repository does not have installable software. You will need to use a software
 that can create vector tiles (e.g. Tilemaker) and combine that with configuration files
-designed to output vector tiles according to this schema (e.g. [shortbread-tilemaker](https://github.com/geofabrik/shortbread-tilemaker)).
+designed to output vector tiles according to this schema (e.g. [shortbread-tilemaker](https://github.com/shortbread-tiles/shortbread-tilemaker)).
 
 ## Authors
 
@@ -23,7 +23,7 @@ may be visible in the Git history.
 
 ## See also
 
-* [shortbread-tilemaker](https://github.com/geofabrik/shortbread-tilemaker): Generate this data schema with [tilemaker](https://tilemaker.org/).
+* [shortbread-tilemaker](https://github.com/shortbread-tiles/shortbread-tilemaker): Generate this data schema with [tilemaker](https://tilemaker.org/).
 
 ## License and Copyright
 
