@@ -31,7 +31,7 @@ layer by a float number). Therefore, Tilemaker has to be compiled with `FLOAT_Z_
 Clone and compile Tilemaker:
 
 ```sh
-git clone --branch v2.4.0 https://github.com/systemd/tilemaker.git
+git clone --branch v2.4.0 https://github.com/systemed/tilemaker.git
 cd tilemaker
 make CONFIG=-DFLOAT_Z_ORDER
 ```
