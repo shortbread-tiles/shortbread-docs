@@ -1,3 +1,4 @@
 public/
 .*.swp
 resources/
+shortbread-website/.hugo_build.lock
