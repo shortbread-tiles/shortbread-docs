@@ -12,8 +12,35 @@ The following open source rendering styles are available for Shortbread vector t
 
 | Name                                              | Rendering Engine  | Source code                                                     | Demo |
 | ------------------------------------------------- | :---------------- | :-------------------------------------------------------------- | ---- |
+| [VersaTiles Colorful](#versatiles-colorful)       | MapLibre          | [GitHub](https://github.com/versatiles-org/versatiles-style)    | [link](https://versatiles.org/) |
+| [VersaTiles Neutrino](#versatiles-neutrino)       | MapLibre          | [GitHub](https://github.com/versatiles-org/versatiles-style)    |      |
 | [Shortbread-Mapnik](#shortbread-mapnik)           | Mapnik (CartoCSS) | [GitHub](https://github.com/geofabrik/shortbread-mapnik)        | [link](https://tools.geofabrik.de/map/#4/47.4262/5.5262&type=Geofabrik_Basic_Colour) |
 
+## Styles for MapLibre
+
+### VersaTiles Colorful
+
+VersaTiles Colorful is a colorful, full featured map. It is written for the MapLibre rendering engine using the vector tiles as source.
+
+![VersaTiles Colorful at zoom level 3](versatiles-colorful-z3.webp)
+![VersaTiles Colorful at zoom level 5](versatiles-colorful-z5.webp)
+![VersaTiles Colorful at zoom level 7](versatiles-colorful-z7.webp)
+![VersaTiles Colorful at zoom level 9](versatiles-colorful-z9.webp)
+![VersaTiles Colorful at zoom level 11](versatiles-colorful-z11.webp)
+![VersaTiles Colorful at zoom level 13](versatiles-colorful-z13.webp)
+![VersaTiles Colorful at zoom level 15](versatiles-colorful-z15.webp)
+
+### VersaTiles Neutrino
+
+VersaTiles Neutrino is a light basemap. It is written for the MapLibre rendering engine using the vector tiles as source.
+
+![VersaTiles Neutrino at zoom level 3](versatiles-neutrino-z3.webp)
+![VersaTiles Neutrino at zoom level 5](versatiles-neutrino-z5.webp)
+![VersaTiles Neutrino at zoom level 7](versatiles-neutrino-z7.webp)
+![VersaTiles Neutrino at zoom level 9](versatiles-neutrino-z9.webp)
+![VersaTiles Neutrino at zoom level 11](versatiles-neutrino-z11.webp)
+![VersaTiles Neutrino at zoom level 13](versatiles-neutrino-z13.webp)
+![VersaTiles Neutrino at zoom level 15](versatiles-neutrino-z15.webp)
 
 ## Styles for Mapnik
 
