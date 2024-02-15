@@ -1,4 +1,4 @@
-# Shortbread Vector Tiles – Specification
+# <img src="./shortbread-website/static/shortbread_logo.png" width=50> Shortbread Vector Tiles – Specification
 
 The Shortbread vector tile schema is intended to be a basic, lean, general-purpose vector tile schema for OpenStreetMap data.
 
