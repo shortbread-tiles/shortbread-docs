@@ -5,6 +5,6 @@
   {{ if .Site.GetPage "page" "_header.md" }}
     {{(.Site.GetPage "page" "_header.md").Content}}
   {{else}}
-    <a class="baselink" href="{{.Site.BaseURL}}">{{.Site.Title}}</a>
+	  <img src="/shortbread_logo.svg" alt="Shortbread Tiles Logo"><a class="baselink" href="{{.Site.BaseURL}}">{{.Site.Title}}</a>
   {{end}}
 {{end}}
