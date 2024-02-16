@@ -4,110 +4,78 @@ title = "Creating Shortbread Vector Tiles"
 description = "This page describes how to generate the vector tiles in the Shortbread schema"
 +++
 
-Creating Shortbread vetor tiles consists of a couple of steps. This page provides an overview about
-the tile generation process. It consists of the following steps.
-
-* Install dependencies
-* Clone schema repository
-* Download simplified ocean polygons
-* Generate vector tile set using Tilemaker
-
-## Dependencies
-
-In order to build vector tiles, you have to provide the following dependencies:
-
-* Curl
-* Unzip
-* GDAL
-* Install Tilemaker
-
-Ubuntu/Debian: `apt install curl unzip gdal-bin`
-
-## Tilemaker Installation
-
-The Shortbread vector tile schema requires a special feature of Tilemaker (sorting features in a
-layer by a float number). Therefore, Tilemaker has to be compiled with `FLOAT_Z_ORDER` set to any value.
-
-Clone and compile Tilemaker:
-
-```sh
-git clone --branch v2.4.0 https://github.com/systemd/tilemaker.git
-cd tilemaker
-make CONFIG=-DFLOAT_Z_ORDER
-```
-
-Installation of Tilemaker is described in the [Tilemaker Readme](https://github.com/geofabrik/tilemaker/#installing) as well.
+Shortbread Tiles can be created with [Tilemaker](https://tilemaker.org/).
 
 
-## Clone Schema Repository
+Creating Shortbread vetor tiles is very simple. Install Tilemaker & the shortbread-tilemaker settings, get the OSM & external data, and run tilemaker!
+
+## Tilemaker 
+
+* Follow the [Tilemaker installation instructions](https://github.com/systemed/tilemaker/blob/master/docs/INSTALL.md).
+
+## Shortbread-Tilemaker settings
 
 Clone the Git repository of the vector tile schema from Github:
 
 ```sh
-mkdir shortbread-tilemaker
-git clone https://github.com/geofabrik/shortbread-tilemaker.git shortbread-tilemaker
+git clone https://github.com/shortbread-tiles/shortbread-tilemaker
 ```
 
-## Download Ocean Shape Files
+## Data
 
-The vector tile schema retrieves ocean polygons fro pre-processed ocean polygon shape files by osmdata.openstreetmap.de.
-A script is provided to download and update them. It will write the shape files to the subdirectory `data`.
+### OpenStreetMap data
 
-Tilemaker requires shape files in geographic coordinates (EPSG:4326) but the simplified shape file is provided
-in Web Mercator (EPSG:3857) only. Therefore, GDAL's *ogr2ogr* is used to transform the shape file.
+Tilemaker needs raw OpenStreetMap data as input. You can download it from:
 
-```sh
-cd shortbread-tilemaker
-./get-shapefiles.sh
-```
-
-## Download OpenStreetMap Raw Data
-
-Tilemaker needs raw OpenStreetMap data in `.osm.pbf` format as input. You can download it from
-
-* regional extracts from [download.geofabrik.de](https://download.geofabrik.de)
-* regional extracts from [download.openstreetmap.fr](https://download.openstreetmap.fr/extracts/)
+* regional extracts from [Geofabrik Download Service](https://download.geofabrik.de)
 * latest weekly planet PBF file from [planet.openstreetmap.org](https://planet.openstreetmap.org/) or any of its [mirrors](https://wiki.openstreetmap.org/wiki/Planet.osm#Planet.osm_mirrors)
+* regional extracts from [download.openstreetmap.fr](https://download.openstreetmap.fr/extracts/)
 
-Please try with a small extract first before you try to load the complete world.
+Please try with a small extract first before you try to load the complete planet file.
+
+### Additional data
+
+In the shortbread-tilemaker directory:
+
+	./get-shapefiles.sh
+
+It will download a few required additional files into the `data` directory.
+
+## Generate Tiles
+
+In the shortbread-tilemaker directory, run this command:
+
+	tilemaker --config config.json --process process.lua --bbox -180,-90,180,90 \
+		--input OSM_FILE.osm.pbf --output shortbread-tiles.mbtiles
 
 
-## Generate Vector Tileset
+The generated data is the `shortbread-tiles.mbtiles` file.
 
-Generating vector tiles seems to be pretty simple but there are some show stoppers to keep in mind:
+### Output format
 
-* If you write vector tiles as individual files to disk, mind that they need lots of inodes (about
-  300 million). Reformat the target device or loop-mount a file.
-* Tilemaker benefits from a cache on disk. It should be located on a very fast device (SSD/NVMe,
-  no hard disk or network drive).
-* The .osm.pbf file contains a bounding box entry in its header (this is not true for the planet),
-  Tilemaker will use it as a spatial filter if you do not provide a bounding box on command line.
-  The bounding box is applied on all input sources (OSM data and shape file) and decides which
-  vector tiles will be created at all. Cache size depends on the number of tiles.
+Tilemaker supports a few [output formats](https://github.com/systemed/tilemaker/blob/master/docs/RUNNING.md#standard-usage). Here [mbtiles](https://wiki.openstreetmap.org/wiki/MBTiles) is used.
 
-Run Tilemaker (this command should be executed from the `shortbread-tilemaker` directory):
 
-```sh
-tilemaker --bbox -180,-86,180,86 --input planet-latest.osm.pbf --store tilemaker-cache.dat --config config.json --process process.lua --output output_directory/
-```
+### BBox PBF files
+
+If the `.osm.pbf` file contains a bounding box entry in its header (this is not
+true for the planet), you can omit the `--bbox -180,-90,180,90` part of the
+tilemaker command. The generation process will be much faster for smaller
+areas, and the output data will contain less “ocean tiles”, [[and be a little
+bit smaller]]??
+
+The error message `Can't read shapefiles unless a bounding box is provided.`
+means you need to specify the `--bbox` option.
+
+### Memory
+
+--store FIXME
+
+
+## Statistics
 
 In February 2022, a server with a AMD EPYC 7452 32-Core Processor (2.35–3.35 GHz), 512 GB RAM,
 cache on NVMe and output to a loop-mounted hard disk drive (RAID 1) took 16:15 hours and needed up
-to 358 GB RAM.
+to 358 GB RAM to generate the whole planet.
 
 ## Troubleshooting
-
-### "`z_order` is limited to 1 byte signed integer"
-
-Error message:
-
-```
-lua runtime error: z_order is limited to 1 byte signed integer.
-terminate called after throwing an instance of 'kaguya::LuaTypeMismatch'
-  what():  type mismatch!!
-
-```
-
-Reason: Your version of Tilemake was compiled without the flag `FLOAT_Z_ORDER`.
-
-Solution: Recompile Tilemaker using `make clean && make CONFIG=-DFLOAT_Z_ORDER`.
