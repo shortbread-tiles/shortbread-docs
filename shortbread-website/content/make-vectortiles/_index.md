@@ -8,9 +8,19 @@ Shortbread Tiles can be created with [Tilemaker](https://tilemaker.org/).
 
 Creating Shortbread vetor tiles is very simple. Install Tilemaker & the shortbread-tilemaker settings, get the OSM & external data, and run tilemaker!
 
-## Tilemaker 
+## Software required
+### Tilemaker
 
 * Follow the [Tilemaker installation instructions](https://github.com/systemed/tilemaker/blob/master/docs/INSTALL.md).
+
+### Extra software
+
+You need [`ogr2ogr`](https://gdal.org/programs/ogr2ogr.html).
+
+| OS            | command                     |
+|---------------|-----------------------------|
+| Debian/Ubuntu | `sudo apt install gdal-bin` |
+| _(Other OS)_  | _(command)_                 |
 
 ## Shortbread-Tilemaker settings
 
