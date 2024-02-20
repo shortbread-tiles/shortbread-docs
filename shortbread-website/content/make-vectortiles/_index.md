@@ -78,8 +78,9 @@ means you need to specify the `--bbox` option.
 
 ### Memory
 
---store FIXME
+The above command uses the tilemaker default of storing things in memory. If you are running out of memory, you need the `--store` option, e.g. ` --store tilemaker.store.d/ `.
 
+Read more in the [tilemaker documentation about on-disk storage](https://github.com/systemed/tilemaker/blob/master/docs/RUNNING.md#using-on-disk-storage)
 
 ## Statistics
 
