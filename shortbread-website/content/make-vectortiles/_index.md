@@ -22,7 +22,7 @@ You need [`ogr2ogr`](https://gdal.org/programs/ogr2ogr.html).
 | Debian/Ubuntu | `sudo apt install gdal-bin` |
 | _(Other OS)_  | _(command)_                 |
 
-## Shortbread-Tilemaker settings
+## Get Shortbread-Tilemaker settings
 
 Clone the Git repository of the vector tile schema from Github:
 
@@ -30,7 +30,7 @@ Clone the Git repository of the vector tile schema from Github:
 git clone https://github.com/shortbread-tiles/shortbread-tilemaker
 ```
 
-## Data
+## Get Data
 
 ### OpenStreetMap data
 
@@ -65,7 +65,7 @@ The generated data is the `shortbread-tiles.mbtiles` file.
 Tilemaker supports a few [output formats](https://github.com/systemed/tilemaker/blob/master/docs/RUNNING.md#standard-usage). Here [mbtiles](https://wiki.openstreetmap.org/wiki/MBTiles) is used.
 
 
-### BBox PBF files
+#### BBox PBF files
 
 If the `.osm.pbf` file contains a bounding box entry in its header (this is not
 true for the planet), you can omit the `--bbox -180,-90,180,90` part of the
@@ -76,7 +76,7 @@ bit smaller]]??
 The error message `Can't read shapefiles unless a bounding box is provided.`
 means you need to specify the `--bbox` option.
 
-### Memory
+#### Memory
 
 The above command uses the tilemaker default of storing things in memory. If you are running out of memory, you need the `--store` option, e.g. ` --store tilemaker.store.d/ `.
 
