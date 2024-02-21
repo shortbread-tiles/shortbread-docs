@@ -1,25 +1,23 @@
 +++
-draft= false
 title = "Rendering Styles"
 description = "This page gives an overview about available open source maps styles for Shortbread vector tiles"
+toc = false
 +++
 
-{{% toc /%}}
+The following open source rendering styles are available for Shortbread vector tiles.
 
-## Overview Table
+| Name                                                  | Rendering Engine  | Source code                                                                                                        | Demo                                                                                              |
+| ----------------------------------------------------- | :---------------- | :----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [Shortbread Demo MapLibre](#shortbread-demo-maplibre) | MapLibre-GL       | [GitHub `shortbread-tiles/shortbread-demo-maplibre`](https://github.com/shortbread-tiles/shortbread-demo-maplibre) | _N/A_                                                                                             |
+| [Shortbread-Mapnik](#shortbread-mapnik)               | Mapnik (CartoCSS) | [GitHub `geofabrik/shortbread-mapnik`](https://github.com/geofabrik/shortbread-mapnik)                             | [Geofabrik.de demo](https://tools.geofabrik.de/map/#4/47.4262/5.5262&type=Geofabrik_Basic_Colour) |
 
-The following open source rendering styles are available for Shortbread vector tiles. See below for rendering examples.
+## Shortbread-Demo-MapLibre
 
-| Name                                              | Rendering Engine  | Source code                                                     | Demo |
-| ------------------------------------------------- | :---------------- | :-------------------------------------------------------------- | ---- |
-| [Shortbread-Mapnik](#shortbread-mapnik)           | Mapnik (CartoCSS) | [GitHub](https://github.com/geofabrik/shortbread-mapnik)        | [link](https://tools.geofabrik.de/map/#4/47.4262/5.5262&type=Geofabrik_Basic_Colour) |
+A very basic [Maplibre style](https://github.com/shortbread-tiles/shortbread-demo-maplibre).
 
+## Shortbread-Mapnik
 
-## Styles for Mapnik
-
-### Shortbread-Mapnik
-
-Shortbread-Mapnik is a colored base map style rendering roads, landuse, water, places, buildings and important boundaries
+[Shortbread-Mapnik](https://github.com/geofabrik/shortbread-mapnik) is a colored base map style rendering roads, landuse, water, places, buildings and important boundaries
 without being too detailed. It is written for the Mapnik rendering engine using the vector tiles as source.
 
 ![Shortbread Mapnik at zoom level 4](shortbread-mapnik-z4.png)
