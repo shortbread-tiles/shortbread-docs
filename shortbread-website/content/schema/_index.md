@@ -14,4 +14,4 @@ to attribute OpenStreetMap.
 
 ## Versions
 
-* [1.0](1.0)
+- [1.0](1.0)

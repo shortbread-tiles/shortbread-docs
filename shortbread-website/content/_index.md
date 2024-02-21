@@ -2,7 +2,7 @@
 
 ## About
 
-The *Shortbread* vector tile schema is intended to be a basic, lean, general-purpose vector
+The _Shortbread_ vector tile schema is intended to be a basic, lean, general-purpose vector
 tile schema for [OpenStreetMap](https://www.openstreetmap.org/) data.
 
 It does not, and cannot, cover the full breadth and depth of OpenStreetMap tagging.

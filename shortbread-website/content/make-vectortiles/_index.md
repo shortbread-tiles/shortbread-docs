@@ -5,20 +5,20 @@ description = "This page describes how to generate the vector tiles in the Short
 
 Shortbread Tiles can be created with [Tilemaker](https://tilemaker.org/).
 
-
 Creating Shortbread vetor tiles is very simple. Install Tilemaker & the shortbread-tilemaker settings, get the OSM & external data, and run tilemaker!
 
 ## Software required
+
 ### Tilemaker
 
-* Follow the [Tilemaker installation instructions](https://github.com/systemed/tilemaker/blob/master/docs/INSTALL.md).
+- Follow the [Tilemaker installation instructions](https://github.com/systemed/tilemaker/blob/master/docs/INSTALL.md).
 
 ### Extra software
 
 You need [`ogr2ogr`](https://gdal.org/programs/ogr2ogr.html).
 
 | OS            | command                     |
-|---------------|-----------------------------|
+| ------------- | --------------------------- |
 | Debian/Ubuntu | `sudo apt install gdal-bin` |
 | _(Other OS)_  | _(command)_                 |
 
@@ -36,9 +36,9 @@ git clone https://github.com/shortbread-tiles/shortbread-tilemaker
 
 Tilemaker needs raw OpenStreetMap data as input. You can download it from:
 
-* regional extracts from [Geofabrik Download Service](https://download.geofabrik.de)
-* latest weekly planet PBF file from [planet.openstreetmap.org](https://planet.openstreetmap.org/) or any of its [mirrors](https://wiki.openstreetmap.org/wiki/Planet.osm#Planet.osm_mirrors)
-* regional extracts from [download.openstreetmap.fr](https://download.openstreetmap.fr/extracts/)
+- regional extracts from [Geofabrik Download Service](https://download.geofabrik.de)
+- latest weekly planet PBF file from [planet.openstreetmap.org](https://planet.openstreetmap.org/) or any of its [mirrors](https://wiki.openstreetmap.org/wiki/Planet.osm#Planet.osm_mirrors)
+- regional extracts from [download.openstreetmap.fr](https://download.openstreetmap.fr/extracts/)
 
 Please try with a small extract first before you try to load the complete planet file.
 
@@ -46,7 +46,7 @@ Please try with a small extract first before you try to load the complete planet
 
 In the shortbread-tilemaker directory:
 
-	./get-shapefiles.sh
+    ./get-shapefiles.sh
 
 It will download a few required additional files into the `data` directory.
 
@@ -54,16 +54,14 @@ It will download a few required additional files into the `data` directory.
 
 In the shortbread-tilemaker directory, run this command:
 
-	tilemaker --config config.json --process process.lua --bbox -180,-90,180,90 \
-		--input OSM_FILE.osm.pbf --output shortbread-tiles.mbtiles
-
+    tilemaker --config config.json --process process.lua --bbox -180,-90,180,90 \
+    	--input OSM_FILE.osm.pbf --output shortbread-tiles.mbtiles
 
 The generated data is the `shortbread-tiles.mbtiles` file.
 
 ### Output format
 
 Tilemaker supports a few [output formats](https://github.com/systemed/tilemaker/blob/master/docs/RUNNING.md#standard-usage). Here [mbtiles](https://wiki.openstreetmap.org/wiki/MBTiles) is used.
-
 
 #### BBox PBF files
 
@@ -78,7 +76,7 @@ means you need to specify the `--bbox` option.
 
 #### Memory
 
-The above command uses the tilemaker default of storing things in memory. If you are running out of memory, you need the `--store` option, e.g. ` --store tilemaker.store.d/ `.
+The above command uses the tilemaker default of storing things in memory. If you are running out of memory, you need the `--store` option, e.g. `--store tilemaker.store.d/`.
 
 Read more in the [tilemaker documentation about on-disk storage](https://github.com/systemed/tilemaker/blob/master/docs/RUNNING.md#using-on-disk-storage)
 
