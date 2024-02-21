@@ -13,6 +13,6 @@ Try it out with the [tile set of the German state of Baden-Württemberg (403 MB)
 
 ## History
 
-Shortbread was initially made (and is currently maintained) by [Geofabrik GmbH](https://www.geofabrik.de/), however it is intended to be a true community project and contributions are always welcome.
+Shortbread was initially made (and is currently maintained) by [Geofabrik GmbH](https://www.geofabrik.de/), however it is intended to be a true community project and contributions are always welcome. Geofabrik has no intention of asserting any rights over Shortbread.
 
 This schema documentation is published under the terms of the [CC-0 license](https://creativecommons.org/public-domain/cc0/), generated using the Hugo framework, and the source is [on GitHub](https://github.com/geofabrik/shortbread-docs).
