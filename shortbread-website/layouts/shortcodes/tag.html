@@ -1,5 +1,8 @@
-{{ if .Get 1 }}
-<code><a href="https://wiki.openstreetmap.org/wiki/Key:{{ .Get 0 }}">{{ .Get 0 }}</a>=<a href="https://wiki.openstreetmap.org/wiki/Tag:{{ .Get 0 }}={{ .Get 1 }}">{{ .Get 1 }}</a></code>
-{{ else  }}
+{{ $num_params := len .Params }}
+{{ if eq $num_params 1 }}
 <code><a href="https://wiki.openstreetmap.org/wiki/Key:{{ .Get 0 }}">{{ .Get 0 }}</a>=*</code>
+{{ else if eq $num_params 2 }}
+<code><a href="https://wiki.openstreetmap.org/wiki/Key:{{ .Get 0 }}">{{ .Get 0 }}</a>=<a href="https://wiki.openstreetmap.org/wiki/Tag:{{ .Get 0 }}={{ .Get 1 }}">{{ .Get 1 }}</a></code>
+{{ else }}
+<code><a href="https://wiki.openstreetmap.org/wiki/Key:{{ .Get 0 }}">{{ .Get 0 }}</a>=<a href="https://wiki.openstreetmap.org/wiki/Tag:{{ .Get 0 }}={{ .Get 1 }}">{{ .Get 1 }}</a></code>
 {{ end }}
