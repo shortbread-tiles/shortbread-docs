@@ -1,8 +1,9 @@
 {{ $num_params := len .Params }}
+{{ $key := .Get 0 }}
 {{ if eq $num_params 1 }}
-<code><a href="https://wiki.openstreetmap.org/wiki/Key:{{ .Get 0 }}">{{ .Get 0 }}</a>=*</code>
-{{ else if eq $num_params 2 }}
-<code><a href="https://wiki.openstreetmap.org/wiki/Key:{{ .Get 0 }}">{{ .Get 0 }}</a>=<a href="https://wiki.openstreetmap.org/wiki/Tag:{{ .Get 0 }}={{ .Get 1 }}">{{ .Get 1 }}</a></code>
+<code><a href="https://wiki.openstreetmap.org/wiki/Key:{{ $key }}">{{ $key }}</a>=*</code>
 {{ else }}
-<code><a href="https://wiki.openstreetmap.org/wiki/Key:{{ .Get 0 }}">{{ .Get 0 }}</a>=<a href="https://wiki.openstreetmap.org/wiki/Tag:{{ .Get 0 }}={{ .Get 1 }}">{{ .Get 1 }}</a></code>
+{{/* The loop over values is silly because we have to manually skip the key. I don't know enough go to do this properly */}}
+{{/* After the , is a Zero-Width Space (U+200b). This allows webbrowsers to break the lines, and prevents ugly long lines */}}
+<code><a href="https://wiki.openstreetmap.org/wiki/Key:{{ $key }}">{{ $key }}</a>={{ range $i, $value := .Params }}{{ if gt $i 0 }}{{ if gt $i 1 }},​{{end}}<a href="<https://wiki.openstreetmap.org/wiki/Tag:{{ $key }}={{ $value }}">{{ $value }}</a>{{ end }}{{ end }}</code>
 {{ end }}
