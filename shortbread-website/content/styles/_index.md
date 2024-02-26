@@ -8,8 +8,15 @@ The following open source rendering styles are available for Shortbread vector t
 
 | Name                                                  | Rendering Engine  | Source code                                                                                                        | Demo                                                                                              |
 | ----------------------------------------------------- | :---------------- | :----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [VersaTiles](#versatiles)                             | MapLibre-GL       | [GitHub `versatiles-org/versatiles-style`](https://github.com/versatiles-org/versatiles-style)  | [VersaTiles.org](https://versatiles.org/)                                                         |
 | [Shortbread Demo MapLibre](#shortbread-demo-maplibre) | MapLibre-GL       | [GitHub `shortbread-tiles/shortbread-demo-maplibre`](https://github.com/shortbread-tiles/shortbread-demo-maplibre) | _N/A_                                                                                             |
 | [Shortbread-Mapnik](#shortbread-mapnik)               | Mapnik (CartoCSS) | [GitHub `geofabrik/shortbread-mapnik`](https://github.com/geofabrik/shortbread-mapnik)                             | [Geofabrik.de demo](https://tools.geofabrik.de/map/#4/47.4262/5.5262&type=Geofabrik_Basic_Colour) |
+
+## VersaTiles
+
+[VersaTiles](https://versatiles.org/guide.html) is a completely FLOSS stack for generating, distributing and using map tiles based on OpenStreetMap data, free of any commercial interests.
+
+![VersaTile colourful demo](versatiles-colorful.png)
 
 ## Shortbread-Demo-MapLibre
 
