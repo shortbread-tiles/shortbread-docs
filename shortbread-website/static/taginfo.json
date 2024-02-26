@@ -6,8 +6,8 @@
   "project": {
     "name": "Shortbread Tiles",
     "project_url": "https://shortbread-tiles.org/",
-    "contact_email": "info@geofabrik.de",
-    "contact_name": "Geofabrik GmbH",
+    "contact_email": "amanda@geofabrik.de",
+    "contact_name": "Shortbread Project",
     "doc_url": "https://shortbread-tiles.org/schema/1.0/",
     "icon_url": "https://shortbread-tiles.org/shortbread_logo_favicon.png",
     "description": "A simple Vector Tile scheme"
