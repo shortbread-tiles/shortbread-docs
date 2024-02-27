@@ -8,7 +8,7 @@ pygmentsStyle = "monokailight"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir= false
 enableMissingTranslationPlaceholders = false
-enableRobotsTXT = true
+enableRobotsTXT = false
 
 [params]
 ordersectionsby = "weight"
