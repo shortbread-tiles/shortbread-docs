@@ -1,1 +1,3 @@
+Sitemap: https://shortbread-tiles.org/sitemap.xml
+
 User-agent: *
