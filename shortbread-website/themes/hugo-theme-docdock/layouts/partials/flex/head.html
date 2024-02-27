@@ -12,4 +12,21 @@
 	<link href="{{(printf "theme-%s/variant-%s.css" ($.Site.Params.themeStyle| default "flex") .) | relURL}}" rel="stylesheet">
 {{end}}
 <link rel="stylesheet" href="{{"css/bootstrap.min.css" | relURL}}">
+<meta name="description" content="A free & simple Vector Tile schema for OpenStreetMap">
+
+<!-- Facebook Meta Tags -->
+<meta property="og:url" content="https://shortbread-tiles.org">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shortbread">
+<meta property="og:description" content="A free & simple Vector Tile schema for OpenStreetMap">
+<meta property="og:image" content="https://shortbread-tiles.org/shortbread_logo.png">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta property="twitter:domain" content="shortbread-tiles.org">
+<meta property="twitter:url" content="https://shortbread-tiles.org">
+<meta name="twitter:title" content="Shortbread">
+<meta name="twitter:description" content="A free & simple Vector Tile schema for OpenStreetMap">
+<meta name="twitter:image" content="https://shortbread-tiles.org/shortbread_logo.png">
+
 {{ partial "custom-head.html" . }}
