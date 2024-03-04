@@ -12,6 +12,9 @@ enableRobotsTXT = false
 
 [params]
 ordersectionsby = "weight"
+description = "A free & simple Vector Tile schema for OpenStreetMap"
+
+
 
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]
