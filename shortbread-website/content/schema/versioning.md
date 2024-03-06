@@ -31,7 +31,7 @@ A new minor version must be usable by any styles written to the previous minor v
 Minor revisions must not
 - remove or rename layers;
 - remove tagging from features unless that type of tagging no longer is in OpenStreetMap;
-- remove of types of objects unless that type of object is no longer mapped in OpenStreetMap; or
+- remove types of objects unless that type of object is no longer mapped in OpenStreetMap; or
 - add features of a different geometry type to an existing layer;
 
 It is possible that a style written for a specific implementation of the schema may stop working with minor changes if the implementation relied on behavior that was not fully defined. To avoid this, implementers should raise issues about any ambiguities so their implementation is more likely to be compatible with the next minor revision.
