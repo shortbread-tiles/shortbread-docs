@@ -14,7 +14,9 @@ enableRobotsTXT = false
 ordersectionsby = "weight"
 description = "A free & simple Vector Tile schema for OpenStreetMap"
 
-
-
 [outputs]
 home = [ "HTML", "RSS", "JSON" ]
+
+[markup.goldmark.renderer]
+unsafe = true # Allow HTML in Markdown
+
