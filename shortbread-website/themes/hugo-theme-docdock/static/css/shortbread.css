@@ -37,3 +37,8 @@ article section.page img {
 footer a {
     text-decoration: underline;
 }
+
+div.example-images img {
+    width: 300px;
+}
+
