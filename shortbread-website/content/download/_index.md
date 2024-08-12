@@ -1,6 +1,7 @@
 +++
 title = "Downloading Shortbread Tiles"
 description = "How & where to download shortbread vector tiles"
+weight = 5
 +++
 
 As well as [making shortbread vector tiles yourself](/make-vectortiles/), you can download tiles from these providers.

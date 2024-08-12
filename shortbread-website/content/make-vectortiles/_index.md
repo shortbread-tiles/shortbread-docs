@@ -1,6 +1,7 @@
 +++
 title = "Creating Shortbread Vector Tiles"
 description = "This page describes how to generate the vector tiles in the Shortbread schema"
+weight = 4
 +++
 
 ## Tile creation workflows

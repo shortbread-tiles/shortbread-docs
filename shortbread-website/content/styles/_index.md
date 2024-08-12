@@ -1,6 +1,7 @@
 +++
 title = "Rendering Styles"
 description = "This page gives an overview about available open source maps styles for Shortbread vector tiles"
+weight = 3
 toc = false
 +++
 

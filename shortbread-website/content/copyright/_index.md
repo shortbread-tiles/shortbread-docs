@@ -1,5 +1,6 @@
 +++
 title = "Copyright & License"
+weight = 1
 +++
 
 # Copyright
