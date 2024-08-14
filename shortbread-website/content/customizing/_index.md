@@ -6,34 +6,61 @@ weight = 6
 
 ## Use cases
 
-* Custom style
-* Additional POIs
-* Route relations
-* More tags for special objects
-* Additional tags for streets or buildings
-* Other / more languages
+* **Custom styles**: Hiding features in a map or highlighting specific features can be done with a custom style.
+Since styles are applied in the browser, you can use existing Shortbread tiles.
 
-### Basic rules
+* **Additional POIs**: If some POIs are missing or specific attributes for styling are not included, then you
+have to create custom Shortbread tiles or an additional tileset. 
 
-* Keep tiles small
-* Don't break base map styles
-* Discuss core extensions in [shortbread-docs repo](https://github.com/shortbread-tiles/shortbread-docs)
+* **Route relations**: If you want to highlight route relations (e.g. bus lines) in your map, then you
+have to create custom Shortbread tiles or an additional tileset. 
+
+* **More tags for special objects**: If you want do create specialized maps requiring additional tags, then you
+have to create custom Shortbread tiles or an additional tileset. 
+
+* **Additional tags for streets or buildings**: If you want do create specialized maps requiring additional tags for streets or buildings, then you
+have to create custom Shortbread tiles. 
+
+* **Other / more languages**: Currently Shortbread tiles include `name`, `name_en` and `name_de`. It is a goal for Shortbread 2.0 to
+add support for other languages. In the meantime you have to create custom Shortbread tiles, if you need more languages.
 
 ## Custom Styling
 
-Mapbox / MapLibre GL JSON: <https://maplibre.org/maplibre-style-spec/>
+### Web mapping libraries
 
-Style editor:
+Most Javascript mapping libraries support vector tiles as data source.
 
-Maputnik Editor ([maplibre.org/maputnik](https://maplibre.org/maputnik/))
+Some well known options are:
+* [MapLibre](https://maplibre.org/)
+* [OpenLayers](https://openlayers.org/) ([ol-mapbox-style](https://github.com/openlayers/ol-mapbox-style))
+* [Leaflet](https://leafletjs.com/) ([maplibre-gl-leaflet plugin](https://github.com/maplibre/maplibre-gl-leaflet))
+* [deck.gl](https://deck.gl/) (MVTLayer), [kepler.gl](https://kepler.gl/)
+
+### Styling
+
+Vector tiles are usually rendered using [MapLibre styles](https://maplibre.org/maplibre-style-spec/).
+You can either write your style in this JSON format or use a visual style editor like [Maputnik](https://maplibre.org/maputnik/).
 
 ## Extending Shortbread
 
+### Creating custom Shotbread tiles
+
+See [Creating Shortbread Vector Tiles](/make-vectortiles/) for workflows and tutorials to create custom Shortbread tiles.
+
+The main options for custom configurations are:
 * tilemaker config (JSON, Lua)
 * Planetiler config (YAML, Java)
 * osm2pgsl config (Lua)
 
+### Basic rules
+
+* Keep tile size small
+* Don't break base map styles
+* Discuss core extensions in [shortbread-docs repo](https://github.com/shortbread-tiles/shortbread-docs)
+
 ### Tileset combinations
+
+There are pros and cons for creating custom base map tiles or creating additional tilesets:
 
 * Extended base map tiles
   * No additional tiles
@@ -46,14 +73,18 @@ Maputnik Editor ([maplibre.org/maputnik](https://maplibre.org/maputnik/))
 
 ### Server-side combination
 
-* Vector tiles can be concatenated by server
+Mapbox vector tiles allow concatenating tiles on server-side.
+
+There are some drawbacks though:
 * Requires a service
 * Not supported by all tile servers
 * Caching more difficult
 
 ## Publish custom tiles
 
-### PMTiles, style and sprites
+There are many ways to publish you own maps based on Shortbread tiles. Here's a minimal tutorial using [PMTiles](https://docs.protomaps.com/pmtiles/) for storing tiles. Tiles are efficently stored in a single file and no additional server software is required for serving tiles. The only requirement is an HTTP server supporting HTTP range requests.
+
+### Preparing tiles and style
 
 ```bash
 # Generate Shortbread tiles
@@ -83,7 +114,7 @@ index.html:
     <script src="https://unpkg.com/pmtiles@3.0.6/dist/pmtiles.js"></script>
     <style>
         body { margin: 0; }
-        #map { height:100%; width:100%;}
+        #map { height: 100vh; width: 100vw;}
     </style>
   </head>
   <body>
@@ -93,7 +124,9 @@ index.html:
       maplibregl.addProtocol("pmtiles", protocol.tile);
       var map = new maplibregl.Map({
         container: 'map',
-        style: 'styles/colorful-mbtiles.json'
+        style: 'styles/colorful-pmtiles.json',
+        center: [9.55, 47.14],
+        zoom: 10
       });
     </script>
   </body>
@@ -102,11 +135,7 @@ index.html:
 
 ### Deploy and serve
 
+Upload directory to a site supporting HTTP Range Requests:
 ```
-# Upload to site supporting HTTP Range Requests
-
 scp -r . example.com:
-
-
-# Or deploy to a hosting provider like Github pages
 ```
