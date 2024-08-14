@@ -15,10 +15,10 @@ have to create custom Shortbread tiles or an additional tileset.
 * **Route relations**: If you want to highlight route relations (e.g. bus lines) in your map, then you
 have to create custom Shortbread tiles or an additional tileset. 
 
-* **More tags for special objects**: If you want do create specialized maps requiring additional tags, then you
+* **More tags for special objects**: If you want to create specialized maps requiring additional tags, then you
 have to create custom Shortbread tiles or an additional tileset. 
 
-* **Additional tags for streets or buildings**: If you want do create specialized maps requiring additional tags for streets or buildings, then you
+* **Additional tags for streets or buildings**: If you want to create specialized maps requiring additional tags for streets or buildings, then you
 have to create custom Shortbread tiles. 
 
 * **Other / more languages**: Currently Shortbread tiles include `name`, `name_en` and `name_de`. It is a goal for Shortbread 2.0 to
