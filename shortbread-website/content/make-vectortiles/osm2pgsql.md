@@ -1,10 +1,10 @@
 +++
 title = "Using osm2pgsql"
-description = "Generating vector tiles with osm2pgsql"
+description = "Importing OSM data into PostGIS with osm2pgsql"
 weight = 3
 +++
 
-[osm2pgsql](https://osm2pgsql.org/) can be used to import and update OSM data in a PostGIS database using the Shortbread shema.
+[osm2pgsql](https://osm2pgsql.org/) can be used to import and update OSM data in a PostGIS database using the Shortbread schema.
 
 ## osm2pgsql overview
 

@@ -14,4 +14,4 @@ Shortbread Tiles can be created with [Tilekiln](https://github.com/pnorman/tilek
 
 ## Usage
 
-* [Tilekiln Quickstart](https://github.com/pnorman/tilekiln?tab=readme-ov-file#quick-start)
+* [Tilekiln Quickstart](https://github.com/pnorman/spirit/blob/main/INSTALL.md)
