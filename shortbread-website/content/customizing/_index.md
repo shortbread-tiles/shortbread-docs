@@ -1,6 +1,6 @@
 +++
 title = "Customizing Shortbread"
-description = "How to create and display custoimzed shortbread vector tiles"
+description = "How to create and display customized shortbread vector tiles"
 weight = 6
 +++
 
@@ -21,7 +21,7 @@ have to create custom Shortbread tiles or an additional tileset.
 * **Additional tags for streets or buildings**: If you want to create specialized maps requiring additional tags for streets or buildings, then you
 have to create custom Shortbread tiles. 
 
-* **Other / more languages**: Currently Shortbread tiles include `name`, `name_en` and `name_de`. It is a goal for Shortbread 2.0 to
+* **Other / more languages**: Currently Shortbread tiles include `name`, `name_en` and `name_de`. It is a goal for Shortbread to
 add support for other languages. In the meantime you have to create custom Shortbread tiles, if you need more languages.
 
 ## Custom Styling
