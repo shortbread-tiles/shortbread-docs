@@ -30,6 +30,7 @@ Software PostGIS → Vector tiles:
 There are multiple options to store vector tiles:
 
 * Files / S3
-* MBTiles (requires tile service for serving)
-* PMTiles
+* [MBTiles](https://github.com/mapbox/mbtiles-spec) (requires tile service for serving)
+* [PMTiles](https://docs.protomaps.com/pmtiles/)
 * DB cache (requires tile service for serving)
+* No storage - live generated tiles
