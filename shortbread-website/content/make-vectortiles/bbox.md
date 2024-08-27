@@ -10,7 +10,6 @@ Shortbread Tiles can be created with [BBOX](https://www.bbox.earth/).
 
 * Generate and serve vector tiles
 * Formats: PostGIS, MBTiles, PMTiles, S3
-* Non-Mercator tile grids
 * Successor of t-rex tile server
 
 ### Serve shortbread tiles from PostGIS
