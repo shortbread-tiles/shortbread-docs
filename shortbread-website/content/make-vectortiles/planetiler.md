@@ -17,6 +17,7 @@ Shortbread Tiles can be created with [Planetiler](https://github.com/onthegomap/
 ### Quickstart (Docker)
 
 ```bash
+mkdir data
 docker run --rm --user=$UID -v $PWD/data:/data ghcr.io/onthegomap/planetiler shortbread.yml \
   --download --area=liechtenstein --output=/data/shortbread.pmtiles
 ```
