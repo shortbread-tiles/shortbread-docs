@@ -1,12 +1,28 @@
 +++
-title = "Rendering Styles"
+title = "Map Styles"
 description = "This page gives an overview about available open source maps styles for Shortbread vector tiles"
+weight = 3
 toc = false
 +++
 
-The following open source rendering styles are available for Shortbread vector tiles.
+## Web mapping libraries
 
-## Styles for MapLibre
+Most Javascript mapping libraries support vector tiles as data source.
+
+Some well known options are:
+* [MapLibre](https://maplibre.org/)
+* [OpenLayers](https://openlayers.org/) ([ol-mapbox-style](https://github.com/openlayers/ol-mapbox-style))
+* [Leaflet](https://leafletjs.com/) ([maplibre-gl-leaflet plugin](https://github.com/maplibre/maplibre-gl-leaflet))
+* [deck.gl](https://deck.gl/) (MVTLayer), [kepler.gl](https://kepler.gl/)
+
+### Styling
+
+Vector tiles are usually rendered using [MapLibre styles](https://maplibre.org/maplibre-style-spec/).
+You can either write your style in this JSON format or use a visual style editor like [Maputnik](https://maplibre.org/maputnik/).
+
+## Available styles
+
+The following open source rendering styles are available for Shortbread vector tiles.
 
 ### VersaTiles Colorful
 
