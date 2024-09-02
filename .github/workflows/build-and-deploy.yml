@@ -33,11 +33,3 @@ jobs:
           eval $(ssh-agent -s)
           ssh-add - <<< "${SSH_KEY}"
           rsync --exclude=/w --delete -r -e "ssh -o StrictHostKeyChecking=no -p 22" shortbread-website/public/ web@web2.fossgis.de:/
-      - name: Deploy site (staging)
-        if: github.ref == 'refs/heads/staging'
-        env:
-          SSH_KEY: ${{ secrets.SSH_KEY_STAGING }}
-        run: |
-          eval $(ssh-agent -s)
-          ssh-add - <<< "${SSH_KEY}"
-          rsync --exclude=/w --delete -r -e "ssh -o StrictHostKeyChecking=no -p 22" shortbread-website/public/ web@web2.fossgis.de:/
