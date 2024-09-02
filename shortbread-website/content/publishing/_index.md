@@ -18,14 +18,20 @@ weight = 6
 
 Minimal tutorial using PMTiles created with Planetiler and MapLibre with a Versatile style.
 
+Prepare directories:
+```bash
+mkdir -p data public/styles public/assets/sprites
+```
+
 Generate Shortbread tiles using Planetiler:
 ```bash
 docker run --rm --user=$UID -v $PWD/data:/data ghcr.io/onthegomap/planetiler shortbread.yml \
   --download --area=liechtenstein --output=/data/shortbread.pmtiles
+mv data/shortbread.pmtiles public/
 ```
 Download Versatiles styles and sprites:
 ```bash
-mkdir -p styles assets/sprites
+cd public
 wget -O - https://github.com/versatiles-org/versatiles-style/releases/latest/download/styles.tar.gz | tar xz -C styles
 wget -O - https://github.com/versatiles-org/versatiles-style/releases/latest/download/sprites.tar.gz | tar xz -C assets/sprites
 ```
@@ -70,7 +76,7 @@ Viewer `index.html`:
 </html>
 ```
 
-Upload directory to a site supporting HTTP Range Requests:
+Upload public directory to a site supporting HTTP Range Requests:
 
 ```
 scp -r . example.com:
