@@ -6,10 +6,10 @@
   "project": {
     "name": "Shortbread Tiles",
     "project_url": "https://shortbread-tiles.org/",
-    "contact_email": "amanda@geofabrik.de",
+    "contact_email": "shortbread@fossgis.de",
     "contact_name": "Shortbread Project",
     "doc_url": "https://shortbread-tiles.org/schema/1.0/",
-    "icon_url": "https://shortbread-tiles.org/shortbread_logo_favicon.png",
+    "icon_url": "https://shortbread-tiles.org/favicon-32x32.png",
     "description": "A simple Vector Tile scheme"
   },
 

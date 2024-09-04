@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Gothic&display=swap');
+
+:root {
+    font-family: "Lato", sans-serif;
+    --primary-hue: 48deg;
+    --primary-saturation: 93%;
+}
+
+body {
+    background-color: rgb(255 248 219);
+}
+
+/*  Title bar */
+.nav-container-blur {
+    background-color: hsl(48deg 93% 45% / 1);
+}
+.nav-container .hx-font-extrabold {
+    font-family: "League Gothic", sans-serif;
+    font-size: 1.55em;
+}
+
+/* Menu hover background */
+aside.sidebar-container .hover\:hx-bg-gray-100:hover {
+    background-color: hsl(48deg 93% 85% / 1);
+}
+
+/* background for "Edit this page" */
+nav .hx-bg-white {
+    background-color: rgb(255 248 219);
+    --tw-shadow: none;
+}
+
+.content h1, h2, h3 {
+    font-family: "League Gothic", sans-serif;
+    letter-spacing: normal;
+}
+
+.content h1 {
+    font-size: 3.77em;
+}
+.content h2 {
+    font-size: 2.11em;
+}
+.content h3 {
+    font-size: 1.55em;
+}
+
+/* Table rows */
+.content :where(table):not(:where(.hextra-code-block table, [class~="not-prose"], [class~="not-prose"] *)) tr:nth-child(2n) {
+    background-color: hsl(48deg 93% 39% / 0.05);
+}
+
+.example-images img {
+    display: initial;
+    width: 300px;
+}
+
+footer.hextra-footer.hx-bg-gray-100 {
+    background-color: hsl(48deg 93% 45% / 1);
+}
+
+/* Reduce footer height */
+footer .hx-py-12 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+footer .hx-mt-6 {
+    margin-top: 0;
+}
