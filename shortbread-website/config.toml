@@ -1,22 +1,72 @@
-baseURL = ""
-languageCode = "en-us"
+baseURL = "https://shortbread-tiles.org/"
 title = "Shortbread"
-theme = "hugo-theme-docdock"
-pygmentsCodeFences = true
-pygmentsStyle = "monokailight"
-
-defaultContentLanguage = "en"
-defaultContentLanguageInSubdir= false
-enableMissingTranslationPlaceholders = false
+theme = "hextra"
 enableRobotsTXT = false
-
-[params]
-ordersectionsby = "weight"
-description = "A free & simple Vector Tile schema for OpenStreetMap"
+enableGitInfo = true
+enableInlineShortcodes = true
 
 [outputs]
-home = [ "HTML", "RSS", "JSON" ]
+home = [ "HTML" ]
+page = [ "HTML" ]
+section = [ "HTML", "RSS" ]
+
+[languages.en]
+languageName = "English"
+weight = 1
+title = "Shortbread"
 
 [markup.goldmark.renderer]
-unsafe = true # Allow HTML in Markdown
+unsafe = true
 
+[markup.highlight]
+noClasses = false
+
+[[menu.main]]
+name = "Search"
+weight = 5
+
+  [menu.main.params]
+  type = "search"
+
+[params]
+description = "A free & simple Vector Tile schema for OpenStreetMap"
+displayUpdatedDate = false
+dateFormat = "January 2, 2006"
+
+  [params.navbar]
+  displayTitle = true
+  displayLogo = true
+  width = "normal"
+
+    [params.navbar.logo]
+    path = "/shortbread_logo.svg"
+    dark = "/shortbread_logo.svg"
+
+  [params.page]
+  width = "normal"
+
+  [params.theme]
+  default = "light"
+  displayToggle = false
+
+  [params.footer]
+  enable = true
+  displayCopyright = true
+  displayPoweredBy = false
+  width = "normal"
+
+  [params.search]
+  enable = true
+  type = "flexsearch"
+
+    [params.search.flexsearch]
+    index = "content"
+    tokenize = "forward"
+
+  [params.editURL]
+  enable = true
+  base = "https://github.com/shortbread-tiles/shortbread-docs/edit/main/shortbread-website/content"
+
+[params.highlight.copy]
+enable = true
+display = "hover"
