@@ -1,7 +1,7 @@
 +++
 title = "Publishing Shortbread Maps"
 description = "Publishing maps with Shortbread vector tiles"
-weight = 6
+weight = 7
 +++
 
 ## Required resources for Shortbread maps

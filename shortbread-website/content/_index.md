@@ -1,4 +1,9 @@
-# Shortbread Tiles
++++
+title = "Shortbread Tiles"
+toc = false
+cascade.breadcrumbs = false
+cascade.type = "docs"
++++
 
 ## About
 

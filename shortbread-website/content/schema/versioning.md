@@ -1,5 +1,4 @@
 +++
-draft= false
 title = "Schema Versioning Policy"
 linkTitle = "Versioning"
 description = "This page describes the versioning policy of the Shortbread schema"

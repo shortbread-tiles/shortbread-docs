@@ -1,9 +1,8 @@
 +++
 title = "Copyright & License"
+toc = false
 weight = 1
 +++
-
-# Copyright
 
 We take the position that this schema is not creative enough to be a copyrightable
 work.

@@ -1,7 +1,8 @@
----
----
-
-# Imprint
++++
+title = "Imprint"
+toc = false
+sidebar.exclude = true
++++
 
 This web site is run by
 
