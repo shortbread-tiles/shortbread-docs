@@ -1,7 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=League+Gothic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=League+Gothic&display=swap');
 
 :root {
     font-family: "Lato", sans-serif;
+    font-size: 1.1rem;
     --primary-hue: 48deg;
     --primary-saturation: 93%;
 }
@@ -17,11 +18,18 @@ body {
 .nav-container .hx-font-extrabold {
     font-family: "League Gothic", sans-serif;
     font-size: 1.55em;
+    font-weight: 400;
 }
 
 /* Menu hover background */
 aside.sidebar-container .hover\:hx-bg-gray-100:hover {
     background-color: hsl(48deg 93% 85% / 1);
+}
+
+/* background for theme switcher */
+html:not(.dark) aside.sidebar-container .hx-sticky {
+    background-color: rgb(255 248 219);
+    --tw-shadow: none;
 }
 
 /* background for "Edit this page" */
@@ -32,17 +40,22 @@ nav .hx-bg-white {
 
 .content h1, h2, h3 {
     font-family: "League Gothic", sans-serif;
-    letter-spacing: normal;
 }
 
 .content h1 {
     font-size: 3.77em;
+    font-weight: 400;
+    letter-spacing: normal;
 }
 .content h2 {
     font-size: 2.11em;
+    font-weight: 400;
+    letter-spacing: normal;
 }
 .content h3 {
     font-size: 1.55em;
+    font-weight: 400;
+    letter-spacing: normal;
 }
 
 /* Table rows */
@@ -55,7 +68,7 @@ nav .hx-bg-white {
     width: 300px;
 }
 
-footer.hextra-footer.hx-bg-gray-100 {
+html:not(.dark) footer.hextra-footer.hx-bg-gray-100 {
     background-color: hsl(48deg 93% 45% / 1);
 }
 
