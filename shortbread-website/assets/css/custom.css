@@ -1,4 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=League+Gothic&display=swap');
+@font-face {
+    font-family: "Lato";
+    src: url("/fonts/Lato/Lato-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("/fonts/Lato/Lato-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "League Gothic";
+    src: url("/fonts/League_Gothic/LeagueGothic-Regular-VariableFont_wdth.ttf")
+        format("truetype");
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
 
 :root {
     font-family: "Lato", sans-serif;
@@ -38,7 +60,9 @@ nav .hx-bg-white {
     --tw-shadow: none;
 }
 
-.content h1, h2, h3 {
+.content h1,
+h2,
+h3 {
     font-family: "League Gothic", sans-serif;
 }
 
@@ -59,7 +83,15 @@ nav .hx-bg-white {
 }
 
 /* Table rows */
-.content :where(table):not(:where(.hextra-code-block table, [class~="not-prose"], [class~="not-prose"] *)) tr:nth-child(2n) {
+.content
+    :where(table):not(
+        :where(
+                .hextra-code-block table,
+                [class~="not-prose"],
+                [class~="not-prose"] *
+            )
+    )
+    tr:nth-child(2n) {
     background-color: hsl(48deg 93% 39% / 0.05);
 }
 
