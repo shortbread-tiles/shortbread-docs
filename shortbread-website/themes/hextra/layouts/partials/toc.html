@@ -35,7 +35,7 @@
               {{- $sourceDir := replace (strings.TrimPrefix .FileInfo.Meta.BaseDir .FileInfo.Meta.SourceRoot) "\\" "/" -}}
               {{- $sourceDir = strings.TrimPrefix "/content" $sourceDir -}}
               {{- $path := replace .Path "\\" "/" -}}
-              {{- $editURL = path.Join $editURL $sourceDir $path -}}
+              {{- $editURL = printf "%s%s/%s" $editURL $sourceDir $path -}}
             {{- end -}}
           {{- end -}}
           <a class="hx-text-xs hx-font-medium hx-text-gray-500 hover:hx-text-gray-900 dark:hx-text-gray-400 dark:hover:hx-text-gray-100 contrast-more:hx-text-gray-800 contrast-more:dark:hx-text-gray-50" href="{{ $editURL }}" target="_blank" rel="noreferer">{{ $editThisPage }}</a>
