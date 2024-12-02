@@ -1,0 +1,114 @@
+@font-face {
+    font-family: "Lato";
+    src: url("/fonts/Lato/Lato-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url("/fonts/Lato/Lato-Italic.ttf") format("truetype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "League Gothic";
+    src: url("/fonts/League_Gothic/LeagueGothic-Regular-VariableFont_wdth.ttf")
+        format("truetype");
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+:root {
+    font-family: "Lato", sans-serif;
+    font-size: 1.1rem;
+    --primary-hue: 48deg;
+    --primary-saturation: 93%;
+}
+
+body {
+    background-color: rgb(255 248 219);
+}
+
+/*  Title bar */
+.nav-container-blur {
+    background-color: hsl(48deg 93% 45% / 1);
+}
+.nav-container .hx-font-extrabold {
+    font-family: "League Gothic", sans-serif;
+    font-size: 1.55em;
+    font-weight: 400;
+}
+
+/* Menu hover background */
+aside.sidebar-container .hover\:hx-bg-gray-100:hover {
+    background-color: hsl(48deg 93% 85% / 1);
+}
+
+/* background for theme switcher */
+html:not(.dark) aside.sidebar-container .hx-sticky {
+    background-color: rgb(255 248 219);
+    --tw-shadow: none;
+}
+
+/* background for "Edit this page" */
+nav .hx-bg-white {
+    background-color: rgb(255 248 219);
+    --tw-shadow: none;
+}
+
+.content h1,
+h2,
+h3 {
+    font-family: "League Gothic", sans-serif;
+}
+
+.content h1 {
+    font-size: 3.77em;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+.content h2 {
+    font-size: 2.11em;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+.content h3 {
+    font-size: 1.55em;
+    font-weight: 400;
+    letter-spacing: normal;
+}
+
+/* Table rows */
+.content
+    :where(table):not(
+        :where(
+                .hextra-code-block table,
+                [class~="not-prose"],
+                [class~="not-prose"] *
+            )
+    )
+    tr:nth-child(2n) {
+    background-color: hsl(48deg 93% 39% / 0.05);
+}
+
+.example-images img {
+    display: initial;
+    width: 300px;
+}
+
+html:not(.dark) footer.hextra-footer.hx-bg-gray-100 {
+    background-color: hsl(48deg 93% 45% / 1);
+}
+
+/* Reduce footer height */
+footer .hx-py-12 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+footer .hx-mt-6 {
+    margin-top: 0;
+}
