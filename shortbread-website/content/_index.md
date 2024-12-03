@@ -14,7 +14,7 @@ It does not, and cannot, cover the full breadth and depth of OpenStreetMap taggi
 
 This website contains the description of the [Shortbread tile schema](/schema/), and instructions on how to [create Shortbread tiles](/make-vectortiles/).
 
-Try it out with the [tile set of the German state of Baden-Württemberg (403 MB)](/shortbread-examples/shortbread-baden-wuerttemberg.mbtiles).
+Try it out with the [tile set of the German state of Baden-Württemberg (360 MB)](https://download.geofabrik.de/europe/germany/baden-wuerttemberg-shortbread-1.0.mbtiles).
 
 ## History
 
