@@ -20,7 +20,7 @@ Try it out with the [tile set of the German state of Baden-Württemberg (403 MB)
 
 Shortbread was initially made by [Geofabrik GmbH](https://www.geofabrik.de/) and is now a community project. Contributions are always welcome.
 
-This schema documentation is published under the terms of the [CC-0 license](https://creativecommons.org/public-domain/cc0/), generated using the Hugo framework, and the source is [on GitHub](https://github.com/geofabrik/shortbread-docs).
+This schema documentation is published under the terms of the [CC-0 license](https://creativecommons.org/public-domain/cc0/), generated using the Hugo framework, and the source is [on GitHub](https://github.com/shortbread-tiles/shortbread-docs).
 
 ## Steering Committee
 
@@ -28,7 +28,7 @@ The job of the steering committee is to govern the Shortbread project, decide on
 
 ### Jochen Topf
 
-[Jochen Topf](https://www.jochentopf.com/) works a freelance consultant and software developer with a focus on OSM data processing. He works on and/or maintains several Open Source projects including the vector tile library [vtzero](https://github.com/mapbox/vtzero), [taginfo](https://github.com/taginfo/taginfo), [Osmium](https://osmcode.org/), and [osm2pgsql](https://osm2pgsql.org/). He is the author of the [osm2pgsql Themepark](https://osm2pgsql.org/thempark) framework which includes a Shortbread configuration for use with osm2pgsql.
+[Jochen Topf](https://www.jochentopf.com/) works a freelance consultant and software developer with a focus on OSM data processing. He works on and/or maintains several Open Source projects including the vector tile library [vtzero](https://github.com/mapbox/vtzero), [taginfo](https://github.com/taginfo/taginfo), [Osmium](https://osmcode.org/), and [osm2pgsql](https://osm2pgsql.org/). He is the author of the [osm2pgsql Themepark](https://osm2pgsql.org/themepark/) framework which includes a Shortbread configuration for use with osm2pgsql.
 
 ### Michael Kreil
 

@@ -26,7 +26,7 @@ The following open source rendering styles are available for Shortbread vector t
 ### VersaTiles Colorful
 
 [VersaTiles Colorful](https://github.com/versatiles-org/versatiles-style) is a colorful, full featured map written for the MapLibre rendering engine.
-[Demo](https://versatiles.org/) using [VersaTiles](https://versatiles.org/guide.html), a completely FLOSS stack for generating, distributing and using map tiles based on OpenStreetMap data, free of any commercial interests.
+[Demo](https://versatiles.org/) using [VersaTiles](https://versatiles.org/), a completely FLOSS stack for generating, distributing and using map tiles based on OpenStreetMap data, free of any commercial interests.
 
 <div class="example-images">
 
