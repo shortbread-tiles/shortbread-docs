@@ -6,7 +6,7 @@ weight = 1
 
 Shortbread Tiles can be created with [Tilemaker](https://tilemaker.org/).
 
-Creating Shortbread vetor tiles is very simple. Install Tilemaker & the shortbread-tilemaker settings, get the OSM & external data, and run tilemaker!
+Creating Shortbread vector tiles is very simple. Install Tilemaker & the shortbread-tilemaker settings, get the OSM & external data, and run tilemaker!
 
 ## tilemaker overview
 
