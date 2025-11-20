@@ -23,38 +23,51 @@ You can either write your style in this JSON format or use a visual style editor
 
 The following open source rendering styles are available for Shortbread vector tiles.
 
-### VersaTiles Colorful
+### VersaTiles Styles
 
-[VersaTiles Colorful](https://github.com/versatiles-org/versatiles-style) is a colorful, full featured map written for the MapLibre rendering engine.
-[Demo](https://versatiles.org/) using [VersaTiles](https://versatiles.org/), a completely FLOSS stack for generating, distributing and using map tiles based on OpenStreetMap data, free of any commercial interests.
+[VersaTiles Styles](https://github.com/versatiles-org/versatiles-style) are map styles written for the MapLibre rendering engine. [VersaTiles](https://versatiles.org/) is a completely FLOSS stack for generating, distributing and using map tiles based on OpenStreetMap data, free of any commercial interests.
 
-<div class="example-images">
-
-![VersaTiles Colorful at zoom level 3](versatiles-colorful-z3.webp)
-![VersaTiles Colorful at zoom level 5](versatiles-colorful-z5.webp)
-![VersaTiles Colorful at zoom level 7](versatiles-colorful-z7.webp)
-![VersaTiles Colorful at zoom level 9](versatiles-colorful-z9.webp)
-![VersaTiles Colorful at zoom level 11](versatiles-colorful-z11.webp)
-![VersaTiles Colorful at zoom level 13](versatiles-colorful-z13.webp)
-![VersaTiles Colorful at zoom level 15](versatiles-colorful-z15.webp)
-
+<div id="map-container" style="position: relative; width: 100%; height: 600px; margin: 2rem 0; border: 2px solid #ccc; border-radius: 8px;">
+  <div id="style-toggle" style="position: absolute; top: 10px; left: 10px; z-index: 1000; background: white; padding: 10px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.2);">
+    <label for="style-select" style="display: block; margin-bottom: 5px; font-weight: bold;">Style:</label>
+    <select id="style-select" style="padding: 5px 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;">
+      <option value="colorful">Colorful</option>
+      <option value="graybeard">Graybeard</option>
+      <option value="eclipse">Eclipse</option>
+      <option value="neutrino">Neutrino</option>
+    </select>
+  </div>
+  <div id="map" style="width: 100%; height: 100%;"></div>
 </div>
 
-### VersaTiles Neutrino
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/dist/maplibre-gl.css">
 
-[VersaTiles Neutrino](https://github.com/versatiles-org/versatiles-style) is a light basemap style written for the MapLibre rendering engine.
+<script type="module">
+import maplibre from 'https://cdn.jsdelivr.net/npm/maplibre-gl@5.12.0/+esm';
 
-<div class="example-images">
+const styleUrls = {
+  colorful: 'https://tiles.versatiles.org/assets/styles/colorful/style.json',
+  graybeard: 'https://tiles.versatiles.org/assets/styles/graybeard/style.json',
+  eclipse: 'https://tiles.versatiles.org/assets/styles/eclipse/style.json',
+  neutrino: 'https://tiles.versatiles.org/assets/styles/neutrino/style.json'
+};
 
-![VersaTiles Neutrino at zoom level 3](versatiles-neutrino-z3.webp)
-![VersaTiles Neutrino at zoom level 5](versatiles-neutrino-z5.webp)
-![VersaTiles Neutrino at zoom level 7](versatiles-neutrino-z7.webp)
-![VersaTiles Neutrino at zoom level 9](versatiles-neutrino-z9.webp)
-![VersaTiles Neutrino at zoom level 11](versatiles-neutrino-z11.webp)
-![VersaTiles Neutrino at zoom level 13](versatiles-neutrino-z13.webp)
-![VersaTiles Neutrino at zoom level 15](versatiles-neutrino-z15.webp)
+// Initialize map
+const map = new maplibre.Map({
+  container: 'map',
+  style: styleUrls.colorful,
+  center: [8.5, 47.4], // Switzerland
+  zoom: 10
+});
 
-</div>
+map.addControl(new maplibre.FullscreenControl(), 'top-right');
+
+const styleSelect = document.getElementById('style-select');
+styleSelect.addEventListener('change', (e) => {
+  const selectedStyle = e.target.value;
+  map.setStyle(styleUrls[selectedStyle]);
+});
+</script>
 
 ## Shortbread-Demo-MapLibre
 
