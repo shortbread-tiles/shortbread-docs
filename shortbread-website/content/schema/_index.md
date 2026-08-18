@@ -7,4 +7,7 @@ This page describes the layers of the Shortbread vector schema and their content
 
 ## Versions
 
-## [Latest Shortbread Tiles schema (v1.0)](./1.0/)
+## [Latest Shortbread Tiles schema (v1.1)](./1.1/)
+
+## Previous versions
+- [Shortbread Tiles schema (v1.0)](./1.0/)
