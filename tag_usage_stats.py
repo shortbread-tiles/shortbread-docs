@@ -17,6 +17,7 @@ N = 100
 key = 'shop'
 regions = ['europe', 'north-america', 'asia', 'south-america', 'africa']
 default_regions = ",".join(regions)
+headers = {"User-Agent": "shortbread/tag_usage_stats"}
 
 parser = argparse.ArgumentParser(description="""Program to determine a list of values for a given key
 where each value is in the list of N most frequently used values
@@ -34,7 +35,7 @@ globalitem = defaultdict(int)
 
 for region in regions:
     url = "https://taginfo.geofabrik.de/{}/api/4/key/values".format(urllib.parse.quote(region))
-    r = requests.get(url, params = { "key": args.key, "sortname": "count", "sortorder": "desc", "rp": str(args.number), "page": "1"})
+    r = requests.get(url, headers=headers, params={"key": args.key, "sortname": "count", "sortorder": "desc", "rp": str(args.number), "page": "1"})
     if r.status_code != 200:
         sys.stderr.write("ERROR: {url} HTTP {status_code}\n".format(**r.__dict__))
         sys.exit(1)
