@@ -35,6 +35,9 @@ globalitem = defaultdict(int)
 for region in regions:
     url = "https://taginfo.geofabrik.de/{}/api/4/key/values".format(urllib.parse.quote(region))
     r = requests.get(url, params = { "key": args.key, "sortname": "count", "sortorder": "desc", "rp": str(args.number), "page": "1"})
+    if r.status_code != 200:
+        sys.stderr.write("ERROR: {url} HTTP {status_code}\n".format(**r.__dict__))
+        sys.exit(1)
     for item in r.json()['data']:
         globalitem[item['value']] += 1
 
