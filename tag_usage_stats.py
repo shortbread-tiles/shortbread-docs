@@ -21,6 +21,7 @@
 
 import argparse
 import enum
+import math
 import requests
 from collections import defaultdict
 import sys
@@ -53,9 +54,9 @@ regions = args.regions.split(",")
 if len(regions) == 0:
     sys.stderr.write("ERROR: No regions provided.\n")
 
-globalitem = defaultdict(int)
+globalitem = {}
 
-for region in regions:
+for i, region in enumerate(regions):
     url = "https://taginfo.geofabrik.de/{}/api/4/key/values".format(urllib.parse.quote(region))
     params = {"sortname": "count_all", "sortorder": "desc", "rp": str(args.number), "page": "1"}
     if args.type == QueryType.keys:
@@ -68,8 +69,20 @@ for region in regions:
         sys.stderr.write("ERROR: {url} HTTP {status_code}\n".format(**r.__dict__))
         sys.exit(1)
     for item in r.json()['data']:
-        globalitem[item[args.type.value]] += 1
+        entry_key = item[args.type.value]
+        entry = globalitem.get(entry_key, [0 for j in range(len(regions))])
+        attr = "count"
+        if args.type == QueryType.keys:
+            attr = "count_all"
+        entry[i] = item[attr]
+        globalitem[entry_key] = entry
 
-for item in globalitem:
-    if globalitem[item] == len(regions):
-        print (item)
+top_entries = []
+for item, counts in globalitem.items():
+    if 0 not in counts:
+        top_entries.append((item, sum(counts)))
+top_entries.sort(key=lambda k: k[1], reverse=True)
+max_keylength = max([len(k[0]) for k in top_entries])
+max_valuelength = int(max([math.log(k[1], 10) for k in top_entries])) + 1
+for t in top_entries:
+    print("{} {}".format(t[0].ljust(max_keylength, " "), str(t[1]).rjust(max_valuelength, " ")))
