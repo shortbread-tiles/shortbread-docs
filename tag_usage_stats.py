@@ -11,6 +11,7 @@ import argparse
 import requests
 from collections import defaultdict
 import sys
+import urllib.parse
 
 N = 100
 key = 'shop'
@@ -32,7 +33,8 @@ if len(regions) == 0:
 globalitem = defaultdict(int)
 
 for region in regions:
-    r = requests.get("https://taginfo.geofabrik.de/{}/api/4/key/values?key={}&sortname=count&sortorder=desc&rp={}&page=1".format(region, args.key, args.number))
+    url = "https://taginfo.geofabrik.de/{}/api/4/key/values".format(urllib.parse.quote(region))
+    r = requests.get(url, params = { "key": args.key, "sortname": "count", "sortorder": "desc", "rp": str(args.number), "page": "1"})
     for item in r.json()['data']:
         globalitem[item['value']] += 1
 
