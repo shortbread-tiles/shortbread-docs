@@ -15,6 +15,14 @@ This repository does not have installable software. You will need to use a softw
 that can create vector tiles (e.g. Tilemaker) and combine that with configuration files
 designed to output vector tiles according to this schema (e.g. [shortbread-tilemaker](https://github.com/shortbread-tiles/shortbread-tilemaker)).
 
+## Scripts
+
+This repository contains a [utility script](tag_usage_stats.py) to aid decisions which tags to support.
+It retrieves the N most frequently used values per key or N most frequently used keys matching a given search string
+from taginfo.geofabrik.de for a couple for regions and returns those who appear in all regions among the top N ranks.
+Run `python tag_usage_stats.py --help` for instructions how to use. See the comment a the beginning of
+the file for usage examples.
+
 ## Authors
 
 The schema has been created for Geofabrik by Thomas Skowron, Christine Karch,
