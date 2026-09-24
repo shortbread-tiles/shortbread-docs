@@ -1,4 +1,5 @@
 #! /usr/bin/env python3
+# SPDX-License-Identifier: CC0-1.0
 # Author: Frederik Ramm
 # Extended by Michael Reichert
 # originally published in https://github.com/shortbread-tiles/shortbread-docs/issues/153#issuecomment-5476984543
@@ -10,32 +11,30 @@
 #
 # Example:
 #   - `python tag_usage_stats.py -t value -k shop -n 75`
-#     will return all values of shop=* which are in the list of N most frequently used values of shop=* in all requested regions.
+#     will return all values of shop=* which are in the list of 75 most frequently used values of shop=* in all of the following regions: Africa, Asia, Europe, North America, South America.
 #     For example, if shop=outdoor is frequently used in Europe an North America but rarely used in Africa, it will be not be returned.
 #     However shop=convenience will be returned because it is among the top 75 shop values in all regions.
 #   - `python tag_usage_stats.py -t key -k name -n 75`
-#     will return all keys containing the query string "name" if they appear among the 75 most frequently used keys containing
-#     the substring "name" in all requested regions.
+#     will return all keys which appear among the 75 most frequently used keys containing
+#     the substring "name" in all of the following regions: Africa, Asia, Europe, North America, South America.
 #   - `python tag_usage_stats.py -t value -k office -n 100 -r europe/germany,europe/france`
-#     will return the values of office=* which are in the list of N most freuqently used values in Germany and France.
+#     will return the values of office=* which are in the list of 100 most freuqently used values in Germany and France.
 
 import argparse
 import enum
 import math
 import requests
-from collections import defaultdict
 import sys
 import urllib.parse
 
 N = 100
-key = 'shop'
-regions = ['europe', 'north-america', 'asia', 'south-america', 'africa']
-default_regions = ",".join(regions)
+key = "shop"
+default_regions = ",".join(["europe", "north-america", "asia", "south-america", "africa"])
 headers = {"User-Agent": "shortbread/tag_usage_stats"}
 
 class QueryType(enum.Enum):
-    values = 'value'
-    keys = 'key'
+    values = "value"
+    keys = "key"
 
     def __str__(self):
         return self.value
@@ -68,7 +67,7 @@ for i, region in enumerate(regions):
     if r.status_code != 200:
         sys.stderr.write("ERROR: {url} HTTP {status_code}\n".format(**r.__dict__))
         sys.exit(1)
-    for item in r.json()['data']:
+    for item in r.json()["data"]:
         entry_key = item[args.type.value]
         entry = globalitem.get(entry_key, [0 for j in range(len(regions))])
         attr = "count"
